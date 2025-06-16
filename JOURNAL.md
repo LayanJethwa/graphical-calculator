@@ -16,7 +16,7 @@ I created a list of 10 objectives, and began to create subcategories under them 
 
 # June 16th: Completed breakdown of objectives
 
-I completed all the subcategories for the breakdown of my different objectives, and did research into the algorithms and maths needed, and the hardware components needed.
+I completed all the subcategories for the breakdown of my different objectives, and did research into the algorithms and maths needed, and the hardware components needed. I have uploaded my complete objectives breakdown and current list of links to this repository.
 
 ![Completed objectives](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/16-06.png)
 
