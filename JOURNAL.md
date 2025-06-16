@@ -12,3 +12,12 @@ I created a list of 10 objectives, and began to create subcategories under them 
 ![Objectives](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/09-06.png)
 
 **Total time spent: 1h**
+
+
+# June 16th: Completed breakdown of objectives
+
+I completed all the subcategories for the breakdown of my different objectives, and did research into the algorithms and maths needed, and the hardware components needed.
+
+![Completed objectives](image)
+
+**Total time spent: 3h**
