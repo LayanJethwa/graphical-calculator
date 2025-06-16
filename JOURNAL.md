@@ -18,6 +18,6 @@ I created a list of 10 objectives, and began to create subcategories under them 
 
 I completed all the subcategories for the breakdown of my different objectives, and did research into the algorithms and maths needed, and the hardware components needed.
 
-![Completed objectives](image)
+![Completed objectives](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/16-06.png)
 
 **Total time spent: 3h**
