@@ -27,7 +27,7 @@ I completed all the subcategories for the breakdown of my different objectives, 
 
 I created a list of algorithms to explain, and started to create a plan for them. I also created a Microsoft Form asking people about their experiences with calculators, in order to get ideas and see what people wanted.
 
-![Modelling algorithms]
-![Microsoft Form]
+![Modelling algorithms](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/23-06-1.png)
+![Microsoft Form](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/23-06-2.png)
 
 **Total time spent: 2h**
