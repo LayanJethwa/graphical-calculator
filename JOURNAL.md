@@ -21,3 +21,13 @@ I completed all the subcategories for the breakdown of my different objectives, 
 ![Completed objectives](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/16-06.png)
 
 **Total time spent: 3h**
+
+
+# June 23rd: Started modelling algorithms needed, and created a form for requirements gathering
+
+I created a list of algorithms to explain, and started to create a plan for them. I also created a Microsoft Form asking people about their experiences with calculators, in order to get ideas and see what people wanted.
+
+![Modelling algorithms]
+![Microsoft Form]
+
+**Total time spent: 2h**
