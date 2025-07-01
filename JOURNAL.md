@@ -31,3 +31,12 @@ I created a list of algorithms to explain, and started to create a plan for them
 ![Microsoft Form](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/23-06-2.png)
 
 **Total time spent: 2h**
+
+
+# June 30th: Started modelling the algorithms used in the project
+
+I did some research into the shunting yard algorithm, and created an explanation of the modelling with diagrams. I also started work on an explanation of my plotter function.
+
+![Modelling](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/30-06.png)
+
+**Total time spent: 2h**
