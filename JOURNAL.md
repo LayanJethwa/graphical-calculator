@@ -40,3 +40,11 @@ I did some research into the shunting yard algorithm, and created an explanation
 ![Modelling](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/30-06.png)
 
 **Total time spent: 2h**
+
+
+# July 2nd: Completed the modelling section for the project write-up
+
+I completed my research into the algorithms needed for my project, and wrote them up into the modelling section, so I will be ready to write the code.
+
+![Modelling 1](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/02-07-1.png)
+![Modelling 2](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/02-07-2.png)
