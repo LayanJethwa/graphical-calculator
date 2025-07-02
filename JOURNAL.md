@@ -48,3 +48,5 @@ I completed my research into the algorithms needed for my project, and wrote the
 
 ![Modelling 1](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/02-07-1.png)
 ![Modelling 2](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/02-07-2.png)
+
+**Total time spent: 4h**
