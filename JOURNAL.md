@@ -50,3 +50,13 @@ I completed my research into the algorithms needed for my project, and wrote the
 ![Modelling 2](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/02-07-2.png)
 
 **Total time spent: 4h**
+
+
+# July 3rd: Started doing some research into current systems
+
+I began researching current systems, namely the Casio fx-9750GII and the Casio fx-CG50, and examined the pros and cons of their design.
+
+![Casio 1](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/03-07-1.png)
+![Casio 2](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/03-07-2.png)
+
+**Total time spent: 2h**
