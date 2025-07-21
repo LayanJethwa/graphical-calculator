@@ -60,3 +60,12 @@ I began researching current systems, namely the Casio fx-9750GII and the Casio f
 ![Casio 2](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/03-07-2.png)
 
 **Total time spent: 2h**
+
+# July 21st: Completed full analysis of the project
+
+I completed the entire analysis, which comes to 49 pages and 7970 words. This includes the introduction, features list, end user identification, requirements gathering, research into current systems, modelling, SMART objectives list, hardware, and full bibliography.
+
+![Hardware](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/21-07-1.png)
+![Desmos](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/21-07-2.png)
+
+**Total time spent: 6h**
