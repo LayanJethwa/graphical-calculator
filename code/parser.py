@@ -1,7 +1,9 @@
 import re
 
+import constants
 
-class safelist(list):
+
+class SafeList(list):
     def get(self, index, default=None):
         try:
             return self[index]
@@ -13,7 +15,7 @@ def process(infix):
     matches = re.findall(r"(\d+)x", infix)
     processed_infix = infix
     for match in matches:
-        processed_infix = processed_infix.replace(match+'x',f"({match}*x)")
+        processed_infix = processed_infix.replace(match+'x',match+'*x')
     
     processed_infix = re.findall(r"\d+|\D", processed_infix)
 
@@ -21,28 +23,18 @@ def process(infix):
 
 
 def convert(processed_infix):
-    precedences_list = [('^'),('/','*'),('+','-')]
-    precedences_dict = {None:100000}
-    for index in range(len(precedences_list)):
-        for operator in precedences_list[index]:
-            precedences_dict[operator] = index
-
-    right_associative = ['^']
-    functions = []
-    operands = ['x']
-
-    out_queue = safelist()
-    operator_stack = safelist()
+    out_queue = SafeList()
+    operator_stack = SafeList()
 
     def send():
         out_queue.append(operator_stack.pop())
 
     for token in processed_infix:
 
-        if token.isdigit() or token in operands:
+        if token.isdigit() or token in constants.OPERANDS:
             out_queue.append(token)
 
-        elif token in functions:
+        elif token in constants.FUNCTIONS:
             operator_stack.append(token)
 
         elif token == '(':
@@ -52,15 +44,15 @@ def convert(processed_infix):
             while operator_stack.get(-1) != '(':
                 send()
             operator_stack.pop()
-            if operator_stack.get(-1) in functions:
+            if operator_stack.get(-1) in constants.FUNCTIONS:
                 send()
 
         else:
-            while ((operator_stack.get(-1) != '(' and operator_stack.get(-1) not in functions
+            while ((operator_stack.get(-1) != '(' and operator_stack.get(-1) not in constants.FUNCTIONS
                    and operator_stack.get(-1) != None) and 
-                   ((precedences_dict[operator_stack.get(-1)] < precedences_dict[token])
-                    or (precedences_dict[operator_stack.get(-1)] == precedences_dict[token]
-                        and token not in right_associative))):
+                   ((constants.PRECEDENCES[operator_stack.get(-1)] < constants.PRECEDENCES[token])
+                    or (constants.PRECEDENCES[operator_stack.get(-1)] == constants.PRECEDENCES[token]
+                        and token not in constants.RIGHT_ASSOCIATIVE))):
                         send()
             operator_stack.append(token)
 

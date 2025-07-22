@@ -4,7 +4,6 @@ author: "Layan Jethwa"
 description: "A custom-built graphical calculator with implementation from scratch"
 created_at: "2025-06-09"
 ---
-
 # June 9th: Began to create a list of goals for the project
 
 I created a list of 10 objectives, and began to create subcategories under them after a bit of research into parsing methods.
@@ -13,7 +12,6 @@ I created a list of 10 objectives, and began to create subcategories under them 
 
 **Total time spent: 1h**
 
-
 # June 16th: Completed breakdown of objectives
 
 I completed all the subcategories for the breakdown of my different objectives, and did research into the algorithms and maths needed, and the hardware components needed. I have uploaded my complete objectives breakdown and current list of links to this repository.
@@ -21,7 +19,6 @@ I completed all the subcategories for the breakdown of my different objectives, 
 ![Completed objectives](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/16-06.png)
 
 **Total time spent: 3h**
-
 
 # June 23rd: Started modelling algorithms needed, and created a form for requirements gathering
 
@@ -32,7 +29,6 @@ I created a list of algorithms to explain, and started to create a plan for them
 
 **Total time spent: 2h**
 
-
 # June 30th: Started modelling the algorithms used in the project
 
 I did some research into the shunting yard algorithm, and created an explanation of the modelling with diagrams. I also started work on an explanation of my plotter function.
@@ -40,7 +36,6 @@ I did some research into the shunting yard algorithm, and created an explanation
 ![Modelling](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/30-06.png)
 
 **Total time spent: 2h**
-
 
 # July 2nd: Completed the modelling section for the project write-up
 
@@ -50,7 +45,6 @@ I completed my research into the algorithms needed for my project, and wrote the
 ![Modelling 2](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/02-07-2.png)
 
 **Total time spent: 4h**
-
 
 # July 3rd: Started doing some research into current systems
 
@@ -69,3 +63,13 @@ I completed the entire analysis, which comes to 49 pages and 7970 words. This in
 ![Desmos](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/21-07-2.png)
 
 **Total time spent: 6h**
+
+# July 22nd: Wrote parser, evaluator and basic Pygame display for arbitrary polynomials
+
+I created a parser that pre-processes an equation entered in infix notation and then converts it to postfix. I then created an evaluator that evaluates the expression at a number of evenly spaced points. I then made a basic Pygame display that plots and interpolates the points to create a graph. Below is an image of a graph plotted with Desmos, then the user input for the graph, and finally the output of my code for the graph.
+
+![Desmos graph](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/22-07-1.png)
+![My input](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/22-07-2.png)
+![Pygame output](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/22-07-3.png)
+
+**Total time spent: 3h**
