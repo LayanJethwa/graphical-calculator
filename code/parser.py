@@ -29,7 +29,7 @@ def convert(processed_infix):
 
     right_associative = ['^']
     functions = []
-    numbers = ['x']
+    operands = ['x']
 
     out_queue = safelist()
     operator_stack = safelist()
@@ -39,7 +39,7 @@ def convert(processed_infix):
 
     for token in processed_infix:
 
-        if token.isdigit() or token in numbers:
+        if token.isdigit() or token in operands:
             out_queue.append(token)
 
         elif token in functions:
