@@ -2,7 +2,9 @@ import pygame
 
 import constants
 
+
 label_font = pygame.font.Font('code/assets/universcondensed_medium.ttf', constants.AXIS_LABEL_LENGTH*3)
+
 
 def update_screen(screen):
     screen.fill(constants.WHITE)
@@ -19,6 +21,7 @@ def update_screen(screen):
     screen.blit(label_font.render(str(constants.XMAX), False, constants.BLACK), (constants.WIDTH-label_font.size(str(constants.XMAX))[0]-constants.AXIS_LABEL_LENGTH,constants.Y0+constants.AXIS_LABEL_LENGTH))
     screen.blit(label_font.render(str(constants.YMIN), False, constants.BLACK), (constants.X0+constants.AXIS_LABEL_LENGTH,constants.HEIGHT-label_font.size(str(constants.YMIN))[1]-constants.AXIS_LABEL_LENGTH))
     screen.blit(label_font.render(str(constants.YMAX), False, constants.BLACK), (constants.X0+constants.AXIS_LABEL_LENGTH,constants.AXIS_LABEL_LENGTH))
+
 
 def plot_graph(screen, points, colour):
     previous_point = ()

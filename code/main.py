@@ -4,12 +4,14 @@ import constants
 import parser
 import evaluator
 
+
 constants.precedences_setup()
 
 display_mode = "input"
 current_texts = ['|']+['']*6
 selected = 0
 cursor_active = True
+
 
 pygame.init()
 screen = pygame.display.set_mode((constants.WIDTH, constants.HEIGHT))
@@ -18,44 +20,7 @@ running = True
 import input_display
 import graph_display
 
-'''
-label_font = pygame.font.Font('code/assets/universcondensed_medium.ttf', constants.AXIS_LABEL_LENGTH*3)
 
-screen.fill(constants.WHITE)
-
-pygame.draw.line(screen, constants.BLACK, (0,constants.Y0), (constants.WIDTH,constants.Y0))
-pygame.draw.line(screen, constants.BLACK, (constants.X0,0), (constants.X0,constants.HEIGHT))
-
-pygame.draw.line(screen, constants.BLACK, (0,constants.Y0-constants.AXIS_LABEL_LENGTH), (0,constants.Y0+constants.AXIS_LABEL_LENGTH))
-pygame.draw.line(screen, constants.BLACK, (constants.WIDTH-1,constants.Y0-constants.AXIS_LABEL_LENGTH), (constants.WIDTH-1,constants.Y0+constants.AXIS_LABEL_LENGTH))
-pygame.draw.line(screen, constants.BLACK, (constants.X0-constants.AXIS_LABEL_LENGTH,0), (constants.X0+constants.AXIS_LABEL_LENGTH,0))
-pygame.draw.line(screen, constants.BLACK, (constants.X0-constants.AXIS_LABEL_LENGTH,constants.HEIGHT-1), (constants.X0+constants.AXIS_LABEL_LENGTH,constants.HEIGHT-1))
-
-screen.blit(label_font.render(str(constants.XMIN), False, constants.BLACK), (constants.AXIS_LABEL_LENGTH,constants.Y0+constants.AXIS_LABEL_LENGTH))
-screen.blit(label_font.render(str(constants.XMAX), False, constants.BLACK), (constants.WIDTH-label_font.size(str(constants.XMAX))[0]-constants.AXIS_LABEL_LENGTH,constants.Y0+constants.AXIS_LABEL_LENGTH))
-screen.blit(label_font.render(str(constants.YMIN), False, constants.BLACK), (constants.X0+constants.AXIS_LABEL_LENGTH,constants.HEIGHT-label_font.size(str(constants.YMIN))[1]-constants.AXIS_LABEL_LENGTH))
-screen.blit(label_font.render(str(constants.YMAX), False, constants.BLACK), (constants.X0+constants.AXIS_LABEL_LENGTH,constants.AXIS_LABEL_LENGTH))
-'''
-
-'''
-infix = input("y=")
-postfix = parser.parse(infix)
-points = evaluator.evaluate(postfix)
-
-
-
-previous_point = ()
-for point in points:
-    current_point = ((point[0]*constants.SCALEX)-(constants.XMIN*constants.SCALEX),
-               constants.HEIGHT - ((point[1]*constants.SCALEY)-(constants.YMIN*constants.SCALEY)))
-
-    if previous_point:
-        pygame.draw.line(screen, constants.RED, previous_point, current_point)
-
-    previous_point = current_point
-    
-pygame.display.update()
-'''
 def render_graphs(graphs):
     for index in range(len(graphs)):
         graph = graphs[index]
@@ -64,8 +29,10 @@ def render_graphs(graphs):
             points = evaluator.evaluate(postfix)
             graph_display.plot_graph(screen, points, constants.COLOURS[index])
 
+
 input_display.update_screen(screen, current_texts, selected)
 pygame.display.update()
+
 
 while running:
     for event in pygame.event.get(): 

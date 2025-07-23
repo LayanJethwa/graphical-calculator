@@ -73,3 +73,7 @@ I created a parser that pre-processes an equation entered in infix notation and 
 ![Pygame output](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/22-07-3.png)
 
 **Total time spent: 3h**
+
+# July 23rd: Added an input display screen, fleshed out the graph display screen, and brought it all together
+
+I created a screen where inputs of graphs can be entered, up to 7, with different colours, and a placeholder view window at the top. You can navigate between the graphs with arrow keys and enter, and you can go to the graph screen which plots all the graphs with enter. I brought both screens together with the main function, keeping all the modules nicely integrated with each other.

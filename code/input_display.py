@@ -2,7 +2,9 @@ import pygame
 
 import constants
 
+
 font = pygame.font.Font('code/assets/STIXTwoMath-Regular.ttf', 30)
+
 
 def update_screen(screen, current_texts, selected):
     screen.fill(constants.WHITE)
@@ -26,6 +28,7 @@ def update_screen(screen, current_texts, selected):
         else:
             screen.blit(font.render(current_texts[line], False, constants.BLACK), (125,45+line*40))
         pygame.draw.rect(screen, constants.COLOURS[line], pygame.Rect(440,55+line*40,30,15))
+
 
 def move(direction, current_texts, selected, cursor_active):
     if direction == 'up':
