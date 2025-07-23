@@ -7,6 +7,8 @@
     - Exponents
     - Fractions
     - Decimals
+- Move function
+- Zoom function
 - View window
     - Arrows to access
     - Entry fields
