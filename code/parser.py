@@ -12,6 +12,7 @@ class SafeList(list):
 
 
 def process(infix):
+    infix = infix.replace('x','*').replace('𝑥','x').replace('²','^2').replace('³','^3').replace('÷','/')
     matches = re.findall(r"(\d+)x", infix)
     processed_infix = infix
     for match in matches:

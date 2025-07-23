@@ -1,0 +1,14 @@
+**Display screen**
+- ~~Graph screen~~
+    - ~~Enter to access~~
+    - ~~Parsing of input expression~~
+- Inputs allowed
+    - Negative numbers
+    - Exponents
+    - Fractions
+    - Decimals
+- View window
+    - Arrows to access
+    - Entry fields
+- Mode selector
+- Colour selector
