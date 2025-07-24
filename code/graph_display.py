@@ -33,3 +33,32 @@ def plot_graph(screen, points, colour):
             pygame.draw.line(screen, colour, previous_point, current_point)
 
         previous_point = current_point
+
+
+def move(direction):
+    if direction == 'up':
+        constants.YMAX -= (constants.YDIFF/5)
+        constants.YMIN -= (constants.YDIFF/5)
+    elif direction == 'down':
+        constants.YMAX += (constants.YDIFF/5)
+        constants.YMIN += (constants.YDIFF/5)
+    elif direction == 'left':
+        constants.XMAX -= (constants.XDIFF/5)
+        constants.XMIN -= (constants.XDIFF/5)
+    elif direction == 'right':
+        constants.XMAX += (constants.XDIFF/5)
+        constants.XMIN += (constants.XDIFF/5)
+    constants.update_bounds()
+
+def zoom(direction):
+    if direction == 'in' and constants.XMAX > 0.001:
+        constants.XMAX /= constants.ZOOM_SCALE_FACTOR
+        constants.XMIN /= constants.ZOOM_SCALE_FACTOR
+        constants.YMAX /= constants.ZOOM_SCALE_FACTOR
+        constants.YMIN /= constants.ZOOM_SCALE_FACTOR
+    elif direction == 'out' and constants.XMAX < 1000000:
+        constants.XMAX *= constants.ZOOM_SCALE_FACTOR
+        constants.XMIN *= constants.ZOOM_SCALE_FACTOR
+        constants.YMAX *= constants.ZOOM_SCALE_FACTOR
+        constants.YMIN *= constants.ZOOM_SCALE_FACTOR
+    constants.update_bounds()

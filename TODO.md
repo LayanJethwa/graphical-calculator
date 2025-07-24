@@ -2,11 +2,11 @@
 - ~~Graph screen~~
     - ~~Enter to access~~
     - ~~Parsing of input expression~~
-- Inputs allowed
-    - Negative numbers
-    - Decimals
-- Move function
-- Zoom function
+- ~~Inputs allowed~~
+    - ~~Negative numbers~~
+    - ~~Decimals~~
+- ~~Move function~~
+- ~~Zoom function~~
 
 **Medium priority**
 - View window

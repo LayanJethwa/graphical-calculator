@@ -48,20 +48,11 @@ while running:
                     if event.key in constants.SHIFT_KEYS and (event.mod & pygame.KMOD_SHIFT):
                         current_texts[selected] = current_texts[selected].replace('|',constants.SHIFT_KEYS[event.key]+'|')
 
-                    elif event.key in constants.IDENTICAL_KEYS:
+                    elif event.key in constants.IDENTICAL_KEYS or key.isdigit():
                         current_texts[selected] = current_texts[selected].replace('|',chr(event.key)+'|')
-                    elif key.isdigit():
-                        current_texts[selected] = current_texts[selected].replace('|',key+'|')
 
-                    elif key == 'x':
-                        current_texts[selected] = current_texts[selected].replace('|','𝑥|')
-                    elif event.key == ord('/'):
-                        current_texts[selected] = current_texts[selected].replace('|','÷|')
-
-                    elif key == 'q':
-                        current_texts[selected] = current_texts[selected].replace('|','²|')
-                    elif key == 'w':
-                        current_texts[selected] = current_texts[selected].replace('|','³|')
+                    elif chr(event.key) in constants.PLACEHOLDER_KEYS:
+                        current_texts[selected] = current_texts[selected].replace('|',f'{constants.PLACEHOLDER_KEYS[chr(event.key)]}|')
 
                     elif key == 'backspace':
                         current_texts[selected] = current_texts[selected][0:-2]+'|'
@@ -89,4 +80,22 @@ while running:
                 if key == 'return':
                     display_mode = 'input'
                     input_display.update_screen(screen, current_texts, selected)
+                    pygame.display.update()
+
+                elif event.key in [pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT, pygame.K_n, pygame.K_m]:
+                    if event.key == pygame.K_UP:
+                        graph_display.move('up')
+                    elif event.key == pygame.K_DOWN:
+                        graph_display.move('down')
+                    elif event.key == pygame.K_LEFT:
+                        graph_display.move('left')
+                    elif event.key == pygame.K_RIGHT:
+                        graph_display.move('right')
+                    elif event.key == pygame.K_n:
+                        graph_display.zoom('in')
+                    elif event.key == pygame.K_m:
+                        graph_display.zoom('out')
+
+                    graph_display.update_screen(screen)
+                    render_graphs(current_texts)
                     pygame.display.update()

@@ -1,4 +1,4 @@
-import re
+import regex as re
 
 import constants
 
@@ -13,12 +13,12 @@ class SafeList(list):
 
 def process(infix):
     infix = infix.replace('x','*').replace('𝑥','x').replace('²','^2').replace('³','^3').replace('÷','/')
-    matches = re.findall(r"(\d+)x", infix)
+    implicit_multiplication = re.findall(r"(\d+)x", infix)
     processed_infix = infix
-    for match in matches:
+    for match in implicit_multiplication:
         processed_infix = processed_infix.replace(match+'x',match+'*x')
     
-    processed_infix = re.findall(r"\d+|\D", processed_infix)
+    processed_infix = re.findall(f"(?<=^|[{''.join(constants.OPERATORS)}])-(?:\d+(?:\.\d+)?|[{''.join(constants.OPERANDS)}])|\d+(?:\.\d+)?|[{''.join(constants.OPERANDS)}]|[{''.join(constants.OPERATORS)}]", processed_infix)
 
     return processed_infix
 
@@ -32,7 +32,7 @@ def convert(processed_infix):
 
     for token in processed_infix:
 
-        if token.isdigit() or token in constants.OPERANDS:
+        if token.lstrip('-').replace(".", "", 1).isdigit() or token.lstrip('-') in constants.OPERANDS:
             out_queue.append(token)
 
         elif token in constants.FUNCTIONS:
