@@ -3,6 +3,7 @@ import pygame
 import constants
 import parser
 import evaluator
+import helpers
 
 
 constants.precedences_setup()
@@ -51,7 +52,7 @@ while running:
                     elif event.key in constants.IDENTICAL_KEYS or key.isdigit():
                         current_texts[selected] = current_texts[selected].replace('|',chr(event.key)+'|')
 
-                    elif chr(event.key) in constants.PLACEHOLDER_KEYS:
+                    elif helpers.safe_chr(event.key) in constants.PLACEHOLDER_KEYS:
                         current_texts[selected] = current_texts[selected].replace('|',f'{constants.PLACEHOLDER_KEYS[chr(event.key)]}|')
 
                     elif key == 'backspace':

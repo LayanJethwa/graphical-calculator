@@ -26,22 +26,25 @@ def update_screen(screen):
 def plot_graph(screen, points, colour):
     previous_point = ()
     for point in points:
-        current_point = ((point[0]*constants.SCALEX)-(constants.XMIN*constants.SCALEX),
-                constants.HEIGHT - ((point[1]*constants.SCALEY)-(constants.YMIN*constants.SCALEY)))
+        if point[1] == None:
+            previous_point = None
+        else:
+            current_point = ((point[0]*constants.SCALEX)-(constants.XMIN*constants.SCALEX),
+                    constants.HEIGHT - ((point[1]*constants.SCALEY)-(constants.YMIN*constants.SCALEY)))
 
-        if previous_point:
-            pygame.draw.line(screen, colour, previous_point, current_point)
+            if previous_point:
+                pygame.draw.line(screen, colour, previous_point, current_point)
 
-        previous_point = current_point
+            previous_point = current_point
 
 
 def move(direction):
     if direction == 'up':
-        constants.YMAX -= (constants.YDIFF/5)
-        constants.YMIN -= (constants.YDIFF/5)
-    elif direction == 'down':
         constants.YMAX += (constants.YDIFF/5)
         constants.YMIN += (constants.YDIFF/5)
+    elif direction == 'down':
+        constants.YMAX -= (constants.YDIFF/5)
+        constants.YMIN -= (constants.YDIFF/5)
     elif direction == 'left':
         constants.XMAX -= (constants.XDIFF/5)
         constants.XMIN -= (constants.XDIFF/5)

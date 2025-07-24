@@ -7,6 +7,12 @@
     - ~~Decimals~~
 - ~~Move function~~
 - ~~Zoom function~~
+- ~~Define constants~~
+- ~~Asymptotes for reciprocal graphs~~
+- ~~Logarithmic graphs~~
+- ~~Trigonometric graphs~~
+    - ~~Tan asymptote~~
+    - ~~Reciprocal functions~~
 
 **Medium priority**
 - View window
