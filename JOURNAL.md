@@ -82,3 +82,14 @@ I created a screen where inputs of graphs can be entered, up to 7, with differen
 ![Graph screen](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/23-07-2.png)
 
 **Total time spent: 3h**
+
+# July 24th: Added features and changed design
+
+I updated the design of the input display screen, and changed the parser to allow logarithmic and trigonometric graphs, negative numbers and decimals, graphs with asymptotes, and graphs with constants (pi, e). I also added move and zoom features to the graph, and added a view window feature to change the bounds of the graph.
+
+![Trig input](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/24-07-1.png)
+![Graph output](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/24-07-2.png)
+![View window](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/24-07-3.png)
+
+**Total time spent: 3h**
+

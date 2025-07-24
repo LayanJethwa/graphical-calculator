@@ -15,9 +15,12 @@
     - ~~Reciprocal functions~~
 
 **Medium priority**
-- View window
-    - Arrows to access
-    - Entry fields
+- ~~View window~~
+    - ~~Arrows to access~~
+    - ~~Entry fields~~
+- Parametric graphs
+- Differential equations
+- Indefinite integrals
 
 **Low priority**
 - Rendering engine
@@ -26,3 +29,5 @@
     - Radicals
 - Mode selector
 - Colour selector
+- x = f(y)
+- Types of implicits
