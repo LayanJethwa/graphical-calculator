@@ -1,0 +1,32 @@
+zoom momentary toggle switch
+radians to degrees switch
+
+up,right,down,left buttons
+shift
+on
+
+integral (derivative)
+x (y)
+fraction
+sqrt (cuberoot)
+squared (cubed)
+^n (nroot)
+log
+ln (log10)
+sin (cosec)
+cos (sec)
+tan (cot)
+left bracket
+right bracket
+pi (e)
+multiply
+divide
+plus
+minus
+exe
+10 x nums
+.
+del
+ac (off)
+
+= 38 buttons

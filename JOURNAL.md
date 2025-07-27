@@ -93,3 +93,12 @@ I updated the design of the input display screen, and changed the parser to allo
 
 **Total time spent: 3h**
 
+# July 27th: Created schematic and PCB
+
+I created the schematic and PCB for the hardware in Kicad, and finalised the button layout.
+
+![Schematic](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/27-07-1.png)
+![PCB](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/27-07-2.png)
+![3D model](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/27-07-3.png)
+
+**Total time spent: 4h**
