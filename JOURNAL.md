@@ -3,6 +3,7 @@ title: "Graphical calculator"
 author: "Layan Jethwa"
 description: "A custom-built graphical calculator with implementation from scratch"
 created_at: "2025-06-09"
+total_time_spent: "39 hours"
 ---
 # June 9th: Began to create a list of goals for the project
 
@@ -102,3 +103,11 @@ I created the schematic and PCB for the hardware in Kicad, and finalised the but
 ![3D model](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/27-07-3.png)
 
 **Total time spent: 4h**
+
+# July 30th: Created 3D model, updated PCB
+
+I created the 3D model for the case of the PCB, and updated the PCB multiple times with different parts to get parts that JLCPCB have in stock.
+
+![3D model](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/30-07.png)
+
+**Total time spent: 6h**

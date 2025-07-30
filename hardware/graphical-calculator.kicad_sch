@@ -595,6 +595,193 @@
 				)
 			)
 		)
+		(symbol "JS102011CQN:JS102011CQN"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SWRAD1"
+				(at 12.7 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SW_SPDT"
+				(at 12.7 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "JS102011CQN"
+				(at 21.59 -94.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.ckswitches.com/media/1422/js.pdf"
+				(at 21.59 -194.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Description" "Slide Switches Sub-Miniature Slide Switch 0.3A@6VDC or 0.1A@30VDC"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Height" "5.5"
+				(at 21.59 -394.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Name" "C & K COMPONENTS"
+				(at 21.59 -494.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Part_Number" "JS102011CQN"
+				(at 21.59 -594.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Part Number" "611-JS102011CQN"
+				(at 21.59 -694.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/CK/js102011cqn?qs=j%252B1pi9TdxUaTejr8RwGFYA%3D%3D"
+				(at 21.59 -794.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Arrow Part Number" "JS102011CQN"
+				(at 21.59 -894.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Arrow Price/Stock" "https://www.arrow.com/en/products/js102011cqn/ck?utm_currency=USD&region=nac"
+				(at 21.59 -994.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(symbol "JS102011CQN_1_1"
+				(rectangle
+					(start 5.08 2.54)
+					(end 20.32 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 25.4 0 180)
+					(length 5.08)
+					(name "COM"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "NO"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "RASPBERRY_PI_ZERO_2_W:RASPBERRY_PI_ZERO_2_W"
 			(pin_names
 				(offset 1.016)
@@ -1637,366 +1824,6 @@
 						)
 					)
 					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Switch:SW_Push_SPDT"
-			(pin_names
-				(offset 0) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "SW"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SW_Push_SPDT"
-				(at 0 -5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Momentary Switch, single pole double throw"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "switch single-pole double-throw spdt ON-ON"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SW_Push_SPDT_0_0"
-				(circle
-					(center -2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 1.016) (xy 0 3.048)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 -2.54)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SW_Push_SPDT_0_1"
-				(polyline
-					(pts
-						(xy -1.524 0.2032) (xy 2.3368 1.9812)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 2.54)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SW_Push_SPDT_1_1"
-				(rectangle
-					(start -3.175 3.81)
-					(end 3.175 -3.81)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 5.08 2.54 180)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 -2.54 180)
-					(length 2.54)
-					(name "C"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Switch:SW_SPDT"
-			(pin_names
-				(offset 0) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "SW"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SW_SPDT"
-				(at 0 -5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 -7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Switch, single pole double throw"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "switch single-pole double-throw spdt ON-ON"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SW_SPDT_0_1"
-				(circle
-					(center -2.032 0)
-					(radius 0.4572)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.651 0.254) (xy 1.651 2.286)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 -2.54)
-					(radius 0.4572)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 2.54)
-					(radius 0.4572)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SW_SPDT_1_1"
-				(rectangle
-					(start -3.175 3.81)
-					(end 3.175 -3.81)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 5.08 2.54 180)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 -2.54 180)
-					(length 2.54)
-					(name "C"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3355,28 +3182,6 @@
 			)
 		)
 	)
-	(global_label "OUT"
-		(shape input)
-		(at 116.84 30.48 270)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "79b17421-3884-454c-b9ab-56fd366c781c")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 116.84 37.0938 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "SHIFT"
 		(shape input)
 		(at 88.9 22.86 270)
@@ -3995,22 +3800,22 @@
 	)
 	(global_label "RAD"
 		(shape input)
-		(at 144.78 27.94 0)
+		(at 151.13 29.21 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "c0033fb0-10da-4092-bc0b-e92367d50521")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 151.3938 27.94 0)
+			(at 144.5162 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -4050,6 +3855,28 @@
 		(uuid "c7f78a11-2072-4831-83b6-6de7a2ff9b33")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 52.07 103.0733 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "IN"
+		(shape input)
+		(at 110.49 26.67 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "c9b999d4-551e-479c-809c-5b068d0271fa")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 110.49 31.5905 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4103,31 +3930,9 @@
 			)
 		)
 	)
-	(global_label "IN"
-		(shape input)
-		(at 127 27.94 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "d2474efb-178b-4e0f-a5b9-f05d24a109cc")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 131.9205 27.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "DEG"
 		(shape input)
-		(at 134.62 30.48 270)
+		(at 151.13 26.67 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4137,7 +3942,7 @@
 		)
 		(uuid "d2e43119-84ac-4cbe-8e0f-be8a583c1e91")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 134.62 37.1542 90)
+			(at 144.4558 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4433,6 +4238,28 @@
 			)
 		)
 	)
+	(global_label "OUT"
+		(shape input)
+		(at 128.27 26.67 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "fe736c43-f146-417f-a9f6-f2201dc07016")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 128.27 33.2838 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(symbol
 		(lib_id "power:GND")
 		(at 63.5 40.64 0)
@@ -4500,8 +4327,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_SPDT")
-		(at 139.7 30.48 0)
+		(lib_id "JS102011CQN:JS102011CQN")
+		(at 151.13 26.67 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4510,7 +4337,7 @@
 		(fields_autoplaced yes)
 		(uuid "05c0156b-2464-444a-995e-2a0e09cef505")
 		(property "Reference" "SWRAD1"
-			(at 139.7 21.59 0)
+			(at 163.83 19.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4518,15 +4345,35 @@
 			)
 		)
 		(property "Value" "SW_SPDT"
-			(at 139.7 24.13 0)
+			(at 163.83 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPDT_CK_JS102011SAQN"
-			(at 139.7 30.48 0)
+		(property "Footprint" "JS102011JCQN:SW_JS102011JCQN"
+			(at 172.72 121.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ckswitches.com/media/1422/js.pdf"
+			(at 172.72 221.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "Slide Switches Sub-Miniature Slide Switch 0.3A@6VDC or 0.1A@30VDC"
+			(at 151.13 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4534,17 +4381,78 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
-			(at 139.7 38.1 0)
+		(property "Height" "5.5"
+			(at 172.72 421.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
 				(hide yes)
 			)
 		)
-		(property "Description" "Switch, single pole double throw"
-			(at 139.7 30.48 0)
+		(property "Manufacturer_Name" "C & K COMPONENTS"
+			(at 172.72 521.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "JS102011CQN"
+			(at 172.72 621.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "611-JS102011CQN"
+			(at 172.72 721.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/CK/js102011cqn?qs=j%252B1pi9TdxUaTejr8RwGFYA%3D%3D"
+			(at 172.72 821.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Part Number" "JS102011CQN"
+			(at 172.72 921.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/js102011cqn/ck?utm_currency=USD&region=nac"
+			(at 172.72 1021.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C221659"
+			(at 151.13 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4615,6 +4523,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 20.32 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 20.32 129.54 0)
 			(effects
 				(font
@@ -4757,6 +4674,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 92.71 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "174712d4-6d3f-4951-a9e6-7667df159f1f")
 		)
@@ -4817,6 +4743,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 20.32 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 20.32 160.02 0)
 			(effects
 				(font
@@ -5091,6 +5026,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 38.1 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "59deecff-264a-436c-b270-1fbff15f137c")
 		)
@@ -5240,7 +5184,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 144.78 33.02 0)
+		(at 176.53 26.67 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5249,7 +5193,7 @@
 		(fields_autoplaced yes)
 		(uuid "2d182aef-581b-4130-bc50-e77af25c6a63")
 		(property "Reference" "#PWR040"
-			(at 144.78 39.37 0)
+			(at 176.53 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5258,7 +5202,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 144.78 38.1 0)
+			(at 176.53 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5266,7 +5210,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 144.78 33.02 0)
+			(at 176.53 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5275,7 +5219,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 144.78 33.02 0)
+			(at 176.53 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5284,7 +5228,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 144.78 33.02 0)
+			(at 176.53 26.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5357,6 +5301,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 57.15 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "87359371-bcbd-4902-bb22-0e75c31197b1")
 		)
@@ -5421,6 +5374,15 @@
 			)
 		)
 		(property "Description" "16-bit I/O expander, I2C, interrupts, w pull-ups, GPA/B7 output only (https://microchip.my.site.com/s/article/GPA7---GPB7-Cannot-Be-Used-as-Inputs-In-MCP23017),  SOIC-28"
+			(at 137.16 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C47023"
 			(at 137.16 162.56 0)
 			(effects
 				(font
@@ -5641,6 +5603,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 20.32 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a890c765-107f-4305-ba49-1a96a9c33f45")
 		)
@@ -5767,6 +5738,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 74.93 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 74.93 58.42 0)
 			(effects
 				(font
@@ -5909,6 +5889,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 93.98 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "23f9f14b-c303-4a65-989e-0500998dd269")
 		)
@@ -6043,6 +6032,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 21.59 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "6914cebd-6b8d-4346-b5e2-fdc6d4d2a3bc")
 		)
@@ -6111,6 +6109,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 21.59 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "e539c08e-fbd5-4208-9cfa-c22a9a1b52af")
 		)
@@ -6171,6 +6178,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 39.37 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 39.37 76.2 0)
 			(effects
 				(font
@@ -6515,6 +6531,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C47023"
+			(at 77.47 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "24f1140a-8ede-4107-967c-794dfe5e6b50")
 		)
@@ -6772,6 +6797,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" ""
+			(at 146.05 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "37"
 			(uuid "d05d494f-04a7-4b7d-a58e-abe1973342e4")
 		)
@@ -6954,6 +6988,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 40.64 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a86ceda4-b22f-447a-8ef4-95c69d2726fb")
 		)
@@ -7080,6 +7123,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 39.37 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 39.37 58.42 0)
 			(effects
 				(font
@@ -7222,6 +7274,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 20.32 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "ffa94be5-8008-41e9-9d83-5e1d98fe2d16")
 		)
@@ -7290,6 +7351,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 57.15 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "5ef374df-499d-4f60-a197-bd150b0e61c4")
 		)
@@ -7350,6 +7420,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 76.2 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 76.2 40.64 0)
 			(effects
 				(font
@@ -7690,6 +7769,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 93.98 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "3ad22ce6-f93a-4348-8ae9-42cfc4a119f8")
 		)
@@ -7824,6 +7912,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 39.37 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "392113ca-d13e-4a95-a6fb-fda7e8ea908c")
 		)
@@ -7950,6 +8047,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 93.98 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 93.98 76.2 0)
 			(effects
 				(font
@@ -8158,6 +8264,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 39.37 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a8618292-8e2c-4137-80b8-32e9bdfe98e3")
 		)
@@ -8218,6 +8333,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 93.98 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 93.98 58.42 0)
 			(effects
 				(font
@@ -8309,6 +8433,83 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_Omron_B3FS")
+		(at 115.57 26.67 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a5379255-f64b-4955-a2e2-489d3e1d3b92")
+		(property "Reference" "SWIN1"
+			(at 115.57 19.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Omron_B3FS"
+			(at 115.57 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_SMD:SW_SPST_Omron_B3FS-105xP"
+			(at 115.57 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3fs.pdf"
+			(at 115.57 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 115.57 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
+			(at 115.57 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "c11f9b4d-e7e7-4849-8c19-fc52235d20ac")
+		)
+		(pin "1"
+			(uuid "896a9de5-f1bb-4f4c-910b-aed310f430ba")
+		)
+		(instances
+			(project "graphical-calculator"
+				(path "/f7cf10a3-664d-44e9-81e9-5deb6281c17b"
+					(reference "SWIN1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Omron_B3FS")
 		(at 57.15 58.42 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8360,6 +8561,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 57.15 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f550ff65-6b27-4788-8838-228d53528e24")
 		)
@@ -8370,6 +8580,72 @@
 			(project "graphical-calculator"
 				(path "/f7cf10a3-664d-44e9-81e9-5deb6281c17b"
 					(reference "SWLOG1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 120.65 26.67 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "be3587a3-e14d-486a-91c4-d438f896732a")
+		(property "Reference" "#PWR042"
+			(at 120.65 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 120.65 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 120.65 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 120.65 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 120.65 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "47d277a9-b45a-4624-9dbb-7987e38046e4")
+		)
+		(instances
+			(project "graphical-calculator"
+				(path "/f7cf10a3-664d-44e9-81e9-5deb6281c17b"
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)
@@ -8420,6 +8696,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 58.42 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 58.42 40.64 0)
 			(effects
 				(font
@@ -8496,6 +8781,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 38.1 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d5a02e72-a644-4af3-9cd7-f2aa8ec80b4e")
 		)
@@ -8556,6 +8850,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 40.64 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 40.64 40.64 0)
 			(effects
 				(font
@@ -8698,6 +9001,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 92.71 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "341d19c1-a7b1-4722-a652-49bfd2da9982")
 		)
@@ -8832,6 +9144,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 21.59 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "66011e2b-1335-4e12-a9c5-8df1914aec9a")
 		)
@@ -8892,6 +9213,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 22.86 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 22.86 22.86 0)
 			(effects
 				(font
@@ -8968,6 +9298,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 74.93 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "db4263e8-203c-441a-8ced-d83936b072a2")
 		)
@@ -9028,6 +9367,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 39.37 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 39.37 95.25 0)
 			(effects
 				(font
@@ -9104,6 +9452,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 74.93 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "827834b9-9c30-4188-a5e7-81307cdd39e4")
 		)
@@ -9164,6 +9521,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 21.59 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 21.59 40.64 0)
 			(effects
 				(font
@@ -9314,72 +9680,6 @@
 			(project "graphical-calculator"
 				(path "/f7cf10a3-664d-44e9-81e9-5deb6281c17b"
 					(reference "#PWR06")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 127 33.02 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "dc454b04-c94a-4eb5-94d8-36ce7b7740e4")
-		(property "Reference" "#PWR039"
-			(at 127 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 127 38.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 127 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 127 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 127 33.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "fdc1d268-7a66-450b-8288-ac45a94b7292")
-		)
-		(instances
-			(project "graphical-calculator"
-				(path "/f7cf10a3-664d-44e9-81e9-5deb6281c17b"
-					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -9570,6 +9870,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 38.1 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "69930266-06ba-4b1d-beda-a5da23e5641f")
 		)
@@ -9646,6 +9955,72 @@
 			(project "graphical-calculator"
 				(path "/f7cf10a3-664d-44e9-81e9-5deb6281c17b"
 					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 138.43 26.67 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e5bac7fb-ecde-4aa9-9e94-36a1d407988a")
+		(property "Reference" "#PWR041"
+			(at 138.43 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 138.43 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 138.43 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 138.43 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 138.43 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "52be031e-3f7b-4d4d-aea0-be81398601f8")
+		)
+		(instances
+			(project "graphical-calculator"
+				(path "/f7cf10a3-664d-44e9-81e9-5deb6281c17b"
+					(reference "#PWR041")
 					(unit 1)
 				)
 			)
@@ -9762,6 +10137,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 76.2 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 76.2 22.86 0)
 			(effects
 				(font
@@ -9970,6 +10354,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 21.59 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "865935f2-10cf-40e2-b45f-5f150300e1f5")
 		)
@@ -9980,6 +10373,83 @@
 			(project "graphical-calculator"
 				(path "/f7cf10a3-664d-44e9-81e9-5deb6281c17b"
 					(reference "SWCOS1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Omron_B3FS")
+		(at 133.35 26.67 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f6f108f0-be80-40eb-91b3-3dc3945625cb")
+		(property "Reference" "SWOUT1"
+			(at 133.35 19.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Omron_B3FS"
+			(at 133.35 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_SMD:SW_SPST_Omron_B3FS-105xP"
+			(at 133.35 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://omronfs.omron.com/en_US/ecb/products/pdf/en-b3fs.pdf"
+			(at 133.35 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 133.35 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
+			(at 133.35 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "07c27b97-0787-445c-b5f5-ac8ef5cc1442")
+		)
+		(pin "1"
+			(uuid "8524fd0b-811b-44a1-bc76-b83929b726c0")
+		)
+		(instances
+			(project "graphical-calculator"
+				(path "/f7cf10a3-664d-44e9-81e9-5deb6281c17b"
+					(reference "SWOUT1")
 					(unit 1)
 				)
 			)
@@ -10030,6 +10500,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 58.42 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 58.42 22.86 0)
 			(effects
 				(font
@@ -10114,77 +10593,6 @@
 			(project "graphical-calculator"
 				(path "/f7cf10a3-664d-44e9-81e9-5deb6281c17b"
 					(reference "#PWR03")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_Push_SPDT")
-		(at 121.92 30.48 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "fbb89756-6281-49dc-8927-c3de81755551")
-		(property "Reference" "SWZOOM1"
-			(at 121.92 21.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_Push_SPDT"
-			(at 121.92 24.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPDT_CK_JS102011SAQN"
-			(at 121.92 30.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 121.92 30.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Momentary Switch, single pole double throw"
-			(at 121.92 30.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "0cbc940a-1b1e-4ff5-bcb4-06c1fac1a462")
-		)
-		(pin "3"
-			(uuid "378f8422-db33-451b-99f8-eadfbfe3d8b6")
-		)
-		(pin "2"
-			(uuid "dd97cb62-9463-4a3b-815b-915695830d13")
-		)
-		(instances
-			(project ""
-				(path "/f7cf10a3-664d-44e9-81e9-5deb6281c17b"
-					(reference "SWZOOM1")
 					(unit 1)
 				)
 			)
@@ -10309,6 +10717,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C306879"
+			(at 74.93 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "91a44b2b-047f-443e-812a-40b89e97b3c1")
 		)
@@ -10369,6 +10786,15 @@
 			)
 		)
 		(property "Description" "Omron B3FS 6x6mm single pole normally-open tactile switch"
+			(at 57.15 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C306879"
 			(at 57.15 113.03 0)
 			(effects
 				(font
