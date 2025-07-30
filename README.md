@@ -17,4 +17,4 @@ I decided to make this as a fun maths-based project for my Computer Science NEA.
 |Raspberry Pi Zero 2W|1|1|£12.96|https://www.aliexpress.com/item/1005008147614202.html|
 |Osoyoo 3.5in TFT LCD screen|1|1|£17.57|https://www.aliexpress.com/item/1005006611580965.html|
 |HDMI ribbon cable|1|1|£0.76|https://www.aliexpress.com/item/1005006437300837.html|
-|LiPo flat battery 5V 9000mAh|1|x|x|x|
+|LiPo flat battery 5V 9000mAh|1|1|£8.69|https://www.aliexpress.com/item/1005005621203243.html|
