@@ -1,7 +1,8 @@
-﻿Part name,Quantity needed,Lot,Price,Link
-PCB,1,5 (2 PCBA),$99.17,
-Raspberry Pi Zero 2W,1,1,£12.26,https://www.aliexpress.com/item/1005008147614202.html
-Osoyoo 3.5in TFT LCD 480x320 screen,1,1,£17.57,https://www.aliexpress.com/item/1005006611580965.html
-LiPo flat battery 5V 9000mAh,1,1,£8.69,https://www.aliexpress.com/item/1005005621203243.html
-HDMI ribbon cable,1,1,£0.76,https://www.aliexpress.com/item/1005006437300837.html
-,,,£151.8052,
+Part name	Quantity needed	Lot	Price (USD)	Link	Notes
+Raspberry Pi Zero 2W	1	1	$16.25	https://www.aliexpress.com/item/1005008147614202.html	
+Osoyoo 3.5in DSI LCD screen	1	1	$33.32	https://www.aliexpress.com/i/1005006494047405.html	
+LiPo flat battery 5V 9000mAh	1	1	$11.52	https://www.aliexpress.com/item/1005006611580965.html	
+Omron B3F-1050	40	100	$16.95	https://www.aliexpress.com/item/1005006611580965.html	
+DO-35 1N4148	40	100	$1.02	https://www.aliexpress.com/item/1005004103990376.html	
+JS2011CQN	1	1	$16.77	https://www.mouser.co.uk/ProductDetail/611-JS102011CQN	�12 shipping fees - I will order some more items with my own money that I need to make the most of this
+PCB	1	5	$15.18	https://cart.jlcpcb.com/shopcart/cart/	

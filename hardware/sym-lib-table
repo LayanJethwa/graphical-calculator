@@ -1,0 +1,6 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "B3F-1050")(type "KiCad")(uri "${KIPRJMOD}/assets/B3F-1050/2025-07-31_00-15-22.kicad_sym")(options "")(descr ""))
+  (lib (name "RASPBERRY_PI_ZERO_2_W")(type "KiCad")(uri "${KIPRJMOD}/assets/RPI-Zero-2W/RASPBERRY_PI_ZERO_2_W.kicad_sym")(options "")(descr ""))
+  (lib (name "JS102011CQN")(type "KiCad")(uri "${KIPRJMOD}/assets/JS102011CQN/JS102011CQN.kicad_sym")(options "")(descr ""))
+)

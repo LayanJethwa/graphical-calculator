@@ -1,11 +1,11 @@
-24647809724107161
-300SP1J1BLKM2QE
-SW_300SP1J1BLKM2QE
+24647810243243332
+1N4148 _DO-35_
+DIOAD1300W80L670D310
 
 
 0
-3
-3
+2
+2
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -20,6 +20,13 @@ audio belton reverb
 0
 7
 7
+B3F-1050
+SW_B3F-1050_OMR
+
+B3F-1050 
+0
+4
+4
 Battery
 BatteryClip_Keystone_54_D16-19mm
 Battery clip for batteries with a diameter between 16-19 mm: https://www.keyelco.com/product.cfm/product_id/826
@@ -64469,17 +64476,10 @@ THT
 0
 4
 2
-JS102011
+JS102011CQN
 JS102011CQN
 JS102011CQN-4
 Switch
-0
-3
-3
-JS102011JCQN
-SW_JS102011JCQN
-
-
 0
 3
 3
@@ -88780,7 +88780,7 @@ WiFi IEEE802.11 b/g/n
 0
 44
 44
-RPI_Zero2W
+RPI-Zero-2W
 MODULE_RASPBERRY_PI_ZERO_2_W
 
 
