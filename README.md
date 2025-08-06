@@ -66,7 +66,7 @@ I have decided to use tactile switches with attached shafts, which, as mentioned
 ![Schematic](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/schematic.png)
 ![3D model](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/3d-model.png)
 ![PCB](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/pcb.png)
-![CAD case](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/cad.png)
+![CAD case](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/render.png)
 
 ## BOM ##
 
