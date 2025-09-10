@@ -111,3 +111,11 @@ I created the 3D model for the case of the PCB, and updated the PCB multiple tim
 ![3D model](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/30-07.png)
 
 **Total time spent: 6h**
+
+# June 7th: Added button holes, keycaps and pins
+
+I added button holes and keycaps to my 3D render, and I tidied up the render to remove pins sticking out.
+
+![3D model](https://github.com/LayanJethwa/graphical-calculator/blob/main/images/render.png)
+
+**Total time spent: 4h**
