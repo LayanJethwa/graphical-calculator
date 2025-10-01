@@ -3,7 +3,7 @@ import pygame
 import constants
 
 
-font = pygame.font.Font('code/assets/STIXTwoMath-Regular.ttf', 30)
+font = pygame.font.Font('./assets/STIXTwoMath-Regular.ttf', 30)
 
 
 def update_screen(screen, current_texts, selected, view_window):

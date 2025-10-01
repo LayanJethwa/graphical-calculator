@@ -1,4 +1,4 @@
-import regex as re
+import re
 
 import constants
 import helpers
@@ -16,7 +16,8 @@ def process(infix):
     for match in logarithms:
         processed_infix = processed_infix.replace(f'log{match[0]}({match[1]})',f'{match[0]}log{match[1]}')
     
-    processed_infix = re.findall(f"(?<=^|[{''.join(constants.OPERATORS)}])-(?:\d+(?:\.\d+)?|[{''.join(constants.OPERANDS)}])|\d+(?:\.\d+)?|[{''.join(constants.OPERANDS)}]|[{''.join(constants.OPERATORS)}]|{'|'.join([f'(?:{i})' for i in constants.UNARY_FUNCTIONS+constants.BINARY_FUNCTIONS])}", processed_infix)
+    processed_infix = re.findall(f"(?:^|[{''.join(constants.OPERATORS)}])(-(?:\d+(?:\.\d+)?|[{''.join(constants.OPERANDS)}]))|(\d+(?:\.\d+)?)|([{''.join(constants.OPERANDS)}])|([{''.join(constants.OPERATORS)}])|({'|'.join([f'(?:{i})' for i in constants.UNARY_FUNCTIONS + constants.BINARY_FUNCTIONS])})", processed_infix)
+    processed_infix = [token for group in processed_infix for token in group if token]
 
     return processed_infix
 
