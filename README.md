@@ -50,6 +50,34 @@ I aim to create a physical calculator that is only for plotting graphs. This wil
     - Auto power-off
 
 
+## Demo ##
+
+You can see a software demo at the website: https://layanjethwa.github.io/graphical-calculator/code/build/web/
+
+Currently it is not complete and I have only implemented methods for a few functions. As they will be triggered by physical switches on the calculator, they are triggered by keys currently:
+
+| Keyboard key |  Calculator function  |
+|:-----|------:|
+| SHIFT + =  | + (addition) |
+| SHIFT + 9   |  ( (left bracket)  |
+| SHIFT + 0   | ) (right bracket) |
+| SHIFT + 8   | * (multiplication) |
+| q   | squared |
+| w   | cubed |
+| x   | variable letter x |
+| /   | divide |
+| p   | pi |
+| l   | log |
+| s   | sin |
+| c   | cos |
+| t   | tan |
+| r   | csc |
+| y   | sec |
+| u   | cot |
+
+The syntax of the log function is [base]log([value]), e.g. 2log(x) means log base 2 of x. Implicit multiplication is not currently defined for all functions.
+
+
 ## Hardware ##
 
 The PCB will be shaped like the calculator, and the switches for the buttons will be mounted to it directly. It will have connectors for the screen, CPU, and battery as well. 
