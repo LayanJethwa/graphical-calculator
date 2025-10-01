@@ -77,6 +77,8 @@ Currently it is not complete and I have only implemented methods for a few funct
 
 The syntax of the log function is [base]log([value]), e.g. 2log(x) means log base 2 of x. Implicit multiplication is not currently defined for all functions.
 
+You can use the arrow keys to pan around the graph, n to zoom in, and m to zoom out. When you enter the function, press enter to confirm, and then enter again to go to the graph page. You can also use the arrow keys on the input page to add more graphs to the display.
+
 
 ## Hardware ##
 
