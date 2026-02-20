@@ -12,11 +12,11 @@ def process(infix):
     for match in implicit_multiplication:
         processed_infix = processed_infix.replace(match+'x',match+'*x')
 
-    logarithms = re.findall(f"log(\d+|[{''.join(constants.OPERANDS)}])\((\d+|[{''.join(constants.OPERANDS)}])\)", processed_infix)
+    logarithms = re.findall(fr"log(\d+|[{''.join(constants.OPERANDS)}])\((\d+|[{''.join(constants.OPERANDS)}])\)", processed_infix)
     for match in logarithms:
         processed_infix = processed_infix.replace(f'log{match[0]}({match[1]})',f'{match[0]}log{match[1]}')
     
-    processed_infix = re.findall(f"(?:^|[{''.join(constants.OPERATORS)}])(-(?:\d+(?:\.\d+)?|[{''.join(constants.OPERANDS)}]))|(\d+(?:\.\d+)?)|([{''.join(constants.OPERANDS)}])|([{''.join(constants.OPERATORS)}])|({'|'.join([f'(?:{i})' for i in constants.UNARY_FUNCTIONS + constants.BINARY_FUNCTIONS])})", processed_infix)
+    processed_infix = re.findall(fr"(?:^|[{''.join(constants.OPERATORS)}])(-(?:\d+(?:\.\d+)?|[{''.join(constants.OPERANDS)}]))|(\d+(?:\.\d+)?)|([{''.join(constants.OPERANDS)}])|([{''.join(constants.OPERATORS)}])|({'|'.join([f'(?:{i})' for i in constants.UNARY_FUNCTIONS + constants.BINARY_FUNCTIONS])})", processed_infix)
     processed_infix = [token for group in processed_infix for token in group if token]
 
     return processed_infix

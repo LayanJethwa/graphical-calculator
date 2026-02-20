@@ -1,6 +1,6 @@
 RIGHT_ASSOCIATIVE = ['^','log']
 OPERANDS = ['x']
-OPERATORS = ['+','\-','/','*','^','(',')']
+OPERATORS = ['+',r"\-",'/','*','^','(',')']
 UNARY_FUNCTIONS = ['sin','cos','tan','csc','sec','cot']
 BINARY_FUNCTIONS = ['log']
 
