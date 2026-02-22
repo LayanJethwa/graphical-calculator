@@ -10,11 +10,13 @@ def create_function(postfix):
         if tag == "operand":
             if value == 'x':
                 stack.append(lambda x: x)
+            elif callable(value):
+                stack.append(value)
             else:
                 try:
                     stack.append(lambda x, v=float(value): v)
                 except:
-                    raise "Invalid string for a number"
+                    raise Exception("Invalid string for a number")
         
         elif value == "NEG":
             a = stack.pop()

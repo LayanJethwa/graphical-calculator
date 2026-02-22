@@ -100,44 +100,58 @@ class Expression(Object):
         return pygame.transform.smoothscale(surface, tuple(i*scale for i in surface.get_size()))
     
 
-    def evaluate(self): #handle unary minus (neg), brackets, decimal point
+    def evaluate(self):
         tokens = []
         last_type = "operator"
         token = ""
+
+        def add_token(value, tag): #handles implicit multiplication
+            nonlocal last_type #references parent
+            if last_type == "operand" and value == "(":
+                tokens.append(("*", "operator"))
+            elif last_type == "operand" and value == "x":
+                tokens.append(("*", "operator"))
+            elif last_type == "operand" and callable(value):
+                tokens.append(("*", "operator"))
+
+            tokens.append((value, tag))
+
+            if value == "(":
+                last_type = "operator" #treats left bracket as operator, right as operand for unary neg
+            elif value == ")":
+                last_type = "operand"
+            else:
+                last_type = tag
+
         for object in self.objects:
             if object.type == "number":
                 token += object.value
 
             elif object.type == "symbol" or object.type == "bracket":
                 if token != "":
-                    tokens.append((token, "operand"))
-                    last_type = "operand"
+                    add_token(token, "operand")
                     token = ""
 
                 if object.type == "symbol":
                     if object.value == "-" and last_type == "operator":
-                        tokens.append(("NEG", "operator"))
+                        add_token("NEG", "operator")
                     else:
-                        tokens.append((object.value, "operator"))
-                    last_type = "operator"
+                        add_token(object.value, "operator")
 
                 elif object.type == "bracket":
-                    tokens.append((object.value, "bracket"))
-                    if object.value == "(":
-                        last_type = "operator" #treat left bracket as operator, right as operand for unary neg
-                    elif object.value == ")":
-                        last_type = "operand"
+                    add_token(object.value, "bracket")
 
-            elif object.type == "variable": #assuming variable only comes after operator - handle implicit multiplication
-                tokens.append((object.value, "operand"))
-                last_type = "operand"
+            elif object.type == "variable":
+                if token != "":
+                    add_token(token, "operand")
+                    token = ""
+                add_token(object.value, "operand")
 
             else:
-                tokens.append((object.evaluate(), "operand"))
-                last_type = "operand"
+                add_token(object.evaluate(), "operand")
 
         if token != "":
-            tokens.append((token, "operand"))
+            add_token(token, "operand")
 
         postfix = parser.convert(tokens)
         return evaluator.create_function(postfix)
@@ -177,7 +191,7 @@ class Radical(BinaryOperator):
 
     def render(self, scale=1, cursor=Cursor(None)):
         operator = self.left.render(scale=0.7, cursor=cursor)
-        operand = self.right.render(scale=0.9, cursor=cursor)
+        operand = self.right.render(cursor=cursor)
         surface = pygame.Surface((operand.get_width()+10+operator.get_width(), operand.get_height()+10), pygame.SRCALPHA)
         pygame.draw.lines(surface, constants.BLACK, False, [(operator.get_width()-5, surface.get_height()-10), (operator.get_width(), surface.get_height()), (operator.get_width()+5, 5), (surface.get_width(), 5)], width=2)
         surface.blit(operand, (operator.get_width()+5, 10))
@@ -201,7 +215,7 @@ class SquareRoot(UnaryOperator):
         super().__init__()
 
     def render(self, scale=1, cursor=Cursor(None)):
-        operand = self.operand.render(scale=0.9, cursor=cursor)
+        operand = self.operand.render(cursor=cursor)
         surface = pygame.Surface((operand.get_width()+15, operand.get_height()+5), pygame.SRCALPHA)
         pygame.draw.lines(surface, constants.BLACK, False, [(0, surface.get_height()-10), (5, surface.get_height()), (10, 0), (surface.get_width(), 0)], width=2)
         surface.blit(operand, (10, 5))
