@@ -2,20 +2,12 @@ import constants
 
 import pygame
 pygame.init()
-screen = pygame.display.set_mode((constants.WIDTH, constants.HEIGHT))
 font = pygame.font.Font('./assets/STIXTwoMath-Regular.ttf', 30)
-
-line = 0
-screen.fill(constants.WHITE)
-screen.blit(font.render(f'{line+1}:  𝑦 =', False, constants.BLACK), (35,45+line*40))
-screen.blit(font.render('>', False, constants.BLUE), (5,45+line*40))
-pygame.display.update()
 
 import math
 
-import new_evaluator
-import new_parser
-import graph_display
+import evaluator
+import parser
 
 
 class Object:
@@ -37,9 +29,27 @@ class Cursor(Object):
         self.position = 0
         self.character = "|"
 
-    def render(self, scale=1):
+    def render(self, scale=1, cursor=None):
         surface = font.render(self.character, True, constants.BLUE)
         return pygame.transform.smoothscale(surface, tuple(i*scale for i in surface.get_size()))
+    
+    def move_left(self):
+        if self.position > 0:
+                self.position -= 1
+        elif self.expression == self.expression.parent.right:
+            self.expression = self.expression.parent.left
+        else:
+            self.position = self.expression.parent.parent.index(self.expression.parent)
+            self.expression = self.expression.parent.parent
+
+    def move_right(self):
+        if self.position < len(self.expression.objects):
+            self.position += 1
+        elif self.expression == self.expression.parent.left:
+            self.expression = self.expression.parent.right
+        else:
+            self.position = self.expression.parent.parent.index(self.expression.parent) + 1
+            self.expression = self.expression.parent.parent
 
 
 class Expression(Object):
@@ -52,8 +62,9 @@ class Expression(Object):
         self.type = "expression"
 
     def update(self, arg, pos=-1):
-        if arg == "del":
-            self.objects.pop(pos)
+        if arg == "DEL":
+            if pos != 0:
+                self.objects.pop(pos-1)
         else:
             self.objects.insert(pos, arg)
             arg.parent = self
@@ -61,17 +72,16 @@ class Expression(Object):
     def index(self, object):
         return self.objects.index(object)
     
-    def render(self, scale=1, offset=0):
-        global cursor
+    def render(self, scale=1, offset=0, cursor=Cursor(None)):
         surface = pygame.Surface((0,0), pygame.SRCALPHA)
         render_objects = self.objects.copy()
         if cursor.expression == self:
             render_objects.insert(cursor.position, cursor)
         for object in render_objects:
-            rendered = object.render(scale=scale)
+            rendered = object.render(scale=scale, cursor=cursor)
             new_surface = pygame.Surface((surface.get_width() + rendered.get_width(), max(surface.get_height(), rendered.get_height())), pygame.SRCALPHA)
             new_surface.blit(surface, (0,0))
-            if object.type == "number" or object.type == "symbol":
+            if object.type == "number" or object.type == "symbol" or object.type == "variable":
                 shift = offset
             else:
                 shift = 0
@@ -99,8 +109,8 @@ class Expression(Object):
         if token != "":
             tokens.append((token, "operand"))
 
-        postfix = new_parser.convert(tokens)
-        return new_evaluator.create_function(postfix)
+        postfix = parser.convert(tokens)
+        return evaluator.create_function(postfix)
 
 
 class BinaryOperator(Object):
@@ -118,13 +128,14 @@ class Fraction(BinaryOperator):
     def __init__(self):
         super().__init__()
 
-    def render(self, scale=1):
-        numerator = self.left.render(scale=0.7)
-        denominator = self.right.render(scale=0.7)
-        surface = pygame.Surface((max(numerator.get_width(), denominator.get_width())+5, numerator.get_height()+5+denominator.get_height()), pygame.SRCALPHA)
+    def render(self, scale=1, cursor=Cursor(None)):
+        numerator = self.left.render(scale=0.7, cursor=cursor)
+        denominator = self.right.render(scale=0.7, cursor=cursor)
+        width = max(numerator.get_width(), denominator.get_width())+5
+        surface = pygame.Surface((width, numerator.get_height()+5+denominator.get_height()), pygame.SRCALPHA)
         pygame.draw.line(surface, constants.BLACK, (0, surface.get_height()/2), (surface.get_width(), surface.get_height()/2))
-        surface.blit(numerator, (2.5, 0))
-        surface.blit(denominator, (2.5, 2.5+surface.get_height()/2))
+        surface.blit(numerator, (2.5+((width-numerator.get_width())/2), 0))
+        surface.blit(denominator, (2.5+((width-denominator.get_width())/2), 2.5+surface.get_height()/2))
         return pygame.transform.smoothscale(surface, tuple(i*scale for i in surface.get_size()))
     
     def evaluate(self):
@@ -134,9 +145,9 @@ class Radical(BinaryOperator):
     def __init__(self):
         super().__init__()
 
-    def render(self, scale=1):
-        operator = self.left.render(scale=0.7)
-        operand = self.right.render(scale=0.9)
+    def render(self, scale=1, cursor=Cursor(None)):
+        operator = self.left.render(scale=0.7, cursor=cursor)
+        operand = self.right.render(scale=0.9, cursor=cursor)
         surface = pygame.Surface((operand.get_width()+10+operator.get_width(), operand.get_height()+10), pygame.SRCALPHA)
         pygame.draw.lines(surface, constants.BLACK, False, [(operator.get_width()-5, surface.get_height()-10), (operator.get_width(), surface.get_height()), (operator.get_width()+5, 5), (surface.get_width(), 5)], width=2)
         surface.blit(operand, (operator.get_width()+5, 10))
@@ -144,7 +155,7 @@ class Radical(BinaryOperator):
         return pygame.transform.smoothscale(surface, tuple(i*scale for i in surface.get_size()))
     
     def evaluate(self):
-        return lambda x, a=self.left.evaluate(), b=self.right.evaluate(): math.copysign(abs(b(x)) ** (1/int(a(x))), b(x)) #comment in design about principal root problem with complex numbers
+        return lambda x, a=self.left.evaluate(), b=self.right.evaluate(): math.copysign(abs(b(x)) ** (1/a(x)), b(x)) #comment in design about principal root problem with complex numbers, had to change for non integer powers
 
 
 class UnaryOperator(Object):
@@ -159,8 +170,8 @@ class SquareRoot(UnaryOperator):
     def __init__(self):
         super().__init__()
 
-    def render(self, scale=1):
-        operand = self.operand.render(scale=0.9)
+    def render(self, scale=1, cursor=Cursor(None)):
+        operand = self.operand.render(scale=0.9, cursor=cursor)
         surface = pygame.Surface((operand.get_width()+15, operand.get_height()+5), pygame.SRCALPHA)
         pygame.draw.lines(surface, constants.BLACK, False, [(0, surface.get_height()-10), (5, surface.get_height()), (10, 0), (surface.get_width(), 0)], width=2)
         surface.blit(operand, (10, 5))
@@ -176,7 +187,7 @@ class Operand(Object):
         self.value = None
         self.rendered_value = None
 
-    def render(self, scale=1):
+    def render(self, scale=1, cursor=Cursor(None)):
         surface = font.render(self.rendered_value, True, constants.BLACK)
         return pygame.transform.smoothscale(surface, tuple(i*scale for i in surface.get_size()))
 
@@ -208,77 +219,3 @@ class Variable(Operand):
 
         if self.value == "x":
             self.rendered_value = "𝑥"
-
-
-function = Expression()
-function.parent = function
-global cursor
-cursor = Cursor(function)
-
-BINARY_OPERATORS = "EFR"
-UNARY_OPERATORS = "S"
-NUMBERS = "0123456789"
-SYMBOLS = "+-*/"
-VARIABLES = "x"
-ARROWS = "<>"
-
-running = True
-while True:
-    while running:
-        token = str(input())
-        if token in BINARY_OPERATORS:
-            if token == "R":
-                operator = Radical()
-            elif token == "F":
-                operator = Fraction()
-            cursor.expression.update(operator, cursor.position)
-            cursor.expression = operator.left
-            cursor.position = 0
-        elif token in UNARY_OPERATORS:
-            if token == "S":
-                operator = SquareRoot()
-            cursor.expression.update(operator, cursor.position)
-            cursor.expression = operator.operand
-            cursor.position = 0
-        elif token in NUMBERS:
-            cursor.expression.update(Number(token), cursor.position)
-            cursor.position += 1
-        elif token in SYMBOLS:
-            cursor.expression.update(Symbol(token), cursor.position)
-            cursor.position += 1
-        elif token in VARIABLES:
-            cursor.expression.update(Variable(token), cursor.position)
-            cursor.position += 1
-        elif token in ARROWS:
-            if token == "<":
-                if cursor.position > 0:
-                    cursor.position -= 1
-                elif cursor.expression == cursor.expression.parent.right:
-                    cursor.expression = cursor.expression.parent.left
-                else:
-                    cursor.position = cursor.expression.parent.parent.index(cursor.expression.parent)
-                    cursor.expression = cursor.expression.parent.parent
-            elif token == ">":
-                if cursor.position < len(cursor.expression.objects):
-                    cursor.position += 1
-                elif cursor.expression == cursor.expression.parent.left:
-                    cursor.expression = cursor.expression.parent.right
-                else:
-                    cursor.position = cursor.expression.parent.parent.index(cursor.expression.parent) + 1
-                    cursor.expression = cursor.expression.parent.parent
-        elif token == "Q":
-            running = False
-        
-        surface = function.render(offset=5)
-        white = pygame.Surface((200,40), pygame.SRCALPHA)
-        white.fill(constants.WHITE)
-        screen.blit(white, ((125,45)))
-        screen.blit(surface, ((125,45)))
-        pygame.display.update()
-    
-    evaluated = function.evaluate()
-    points = new_evaluator.create_points(evaluated)
-
-    screen.fill(constants.WHITE)
-    graph_display.plot_graph(screen, points, constants.COLOURS[0])
-    pygame.display.update()

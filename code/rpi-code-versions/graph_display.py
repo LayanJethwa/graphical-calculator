@@ -3,7 +3,7 @@ import pygame
 import constants
 
 
-label_font = pygame.font.Font('./assets/universcondensed_medium.ttf', constants.AXIS_LABEL_LENGTH*3)
+label_font = pygame.font.Font('/home/lrsje/graphical-calculator/assets/universcondensed_medium.ttf', constants.AXIS_LABEL_LENGTH*3)
 
 
 def update_screen(screen):

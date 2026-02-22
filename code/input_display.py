@@ -4,9 +4,10 @@ import constants
 
 
 font = pygame.font.Font('./assets/STIXTwoMath-Regular.ttf', 30)
+small_font = pygame.font.Font('./assets/STIXTwoMath-Regular.ttf', 10)
 
 
-def update_screen(screen, current_texts, selected, view_window):
+def update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode):
     screen.fill(constants.WHITE)
     pygame.draw.rect(screen, constants.BLACK, pygame.Rect(0,0,constants.WIDTH, 40),2)
 
@@ -44,16 +45,26 @@ def update_screen(screen, current_texts, selected, view_window):
         screen.blit(font.render(f'{line+1}:  𝑦 =', False, constants.BLACK), (35,45+line*40))
         if selected == line:
             screen.blit(font.render('>', False, constants.BLUE), (5,45+line*40))
-            screen.blit(font.render(current_texts[selected], False, constants.BLACK), (125,45+line*40))
-        elif current_texts[line] == '':
+            if cursor_active:
+                surface = functions[line].render(offset=5, cursor=cursors[selected])
+            else:
+                surface = functions[line].render(offset=5)
+            screen.blit(surface, (125,45+line*40))
+        elif not functions[line].objects:
             screen.blit(font.render('...', False, constants.BLACK), (125,45+line*40))
         else:
-            screen.blit(font.render(current_texts[line], False, constants.BLACK), (125,45+line*40))
+            surface = functions[line].render(offset=5)
+            screen.blit(surface, (125,45+line*40))
+        
         pygame.draw.rect(screen, constants.COLOURS[line], pygame.Rect(440,55+line*40,30,15))
 
+    
+    if shift_mode:
+        screen.blit(small_font.render("SHIFT", False, constants.BLACK), (450, 5))
 
-def move(direction, current_texts, selected, cursor_active, view_window):
-    if direction == 'up':
+
+def move(direction, functions, cursors, selected, cursor_active, view_window):
+    if direction == 'UP':
         if selected == 0:
             selected = 7
             view_window[selected-7] += '|'
@@ -61,30 +72,33 @@ def move(direction, current_texts, selected, cursor_active, view_window):
 
         elif selected > 0:
             selected -= 1
-            current_texts[selected] += '|'
+            cursors[selected].expression = functions[selected]
+            cursors[selected].position = len(functions[selected].objects)
             cursor_active = True
 
-    elif direction == 'down':
+    elif direction == 'DOWN':
         if selected < 7:
             selected += 1
-            current_texts[selected] += '|'
+            cursors[selected].expression = functions[selected]
+            cursors[selected].position = len(functions[selected].objects)
             cursor_active = True
         
         elif selected >= 7:
             selected = 0
-            current_texts[selected] += '|'
+            cursors[selected].expression = functions[selected]
+            cursors[selected].position = len(functions[selected].objects)
             cursor_active = True
 
-    elif direction == 'left':
+    elif direction == 'LEFT':
         if selected > 7:
             selected -= 1
             view_window[selected-7] += '|'
             cursor_active = True
 
-    elif direction == 'right':
+    elif direction == 'RIGHT':
         if selected < 10:
             selected += 1
             view_window[selected-7] += '|'
             cursor_active = True
 
-    return current_texts, selected, cursor_active, view_window
+    return selected, cursor_active, view_window

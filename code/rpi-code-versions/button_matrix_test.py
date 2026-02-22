@@ -1,4 +1,4 @@
-import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO # type: ignore
 import time
 
 R1 = 2
@@ -50,7 +50,7 @@ def detectRow(row, chars):
             time.sleep(0.2)
     GPIO.output(row, GPIO.LOW)
 
-'''
+
 while True:
     detectRow(R1, ["up", "right", "down", "left", "shift"])
     detectRow(R2, ["on", "zoom in", "zoom out", "integral", "x"])
@@ -60,20 +60,4 @@ while True:
     detectRow(R6, ["+", "-", "*", "/", "EXE"])
     detectRow(R7, [1,2,3,4,5])
     detectRow(R8, [6,7,8,9,0])
-    if GPIO.input(DEG) == GPIO.LOW:
-        print("degrees")
-    elif GPIO.input(RAD) == GPIO.LOW:
-        print("radians")
-'''
-while True:
-    for r in rows:
-        GPIO.output(r, GPIO.LOW)
-
-    for r in rows:
-        GPIO.output(r, GPIO.HIGH)
-        time.sleep(0.01)
-        for c in cols:
-            if GPIO.input(c) == GPIO.HIGH:
-                print(r, c)
-                time.sleep(0.2)
-        GPIO.output(r, GPIO.LOW)
+    print(GPIO.input(DEG) == GPIO.LOW)
