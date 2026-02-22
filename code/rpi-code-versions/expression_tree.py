@@ -2,7 +2,15 @@ import constants
 
 import pygame
 pygame.init()
-font = pygame.font.Font('/home/lrsje/graphical-calculator/assets/STIXTwoMath-Regular.ttf', 30)
+fonts = {30: pygame.font.Font('/home/lrsje/graphical-calculator/assets/STIXTwoMath-Regular.ttf', 30)}
+
+def get_font(size):
+    size = int(size)
+    if fonts.get(size):
+        return fonts.get(size)
+    else:
+        fonts[size] = pygame.font.Font('/home/lrsje/graphical-calculator/assets/STIXTwoMath-Regular.ttf', size)
+        return fonts[size]
 
 import math
 
@@ -30,7 +38,8 @@ class Cursor(Object):
         self.character = "|"
 
     def render(self, scale=1, cursor=None):
-        surface = font.render(self.character, True, constants.BLUE)
+        pixel_size = 30*scale
+        surface = get_font(pixel_size).render(self.character, True, constants.BLUE)
         return pygame.transform.smoothscale(surface, tuple(i*scale for i in surface.get_size()))
     
     def move_left(self):
@@ -188,8 +197,10 @@ class Operand(Object):
         self.rendered_value = None
 
     def render(self, scale=1, cursor=Cursor(None)):
+        pixel_size = 30*scale
+        font = get_font(pixel_size)
         surface = font.render(self.rendered_value, True, constants.BLACK)
-        return pygame.transform.smoothscale(surface, tuple(i*scale for i in surface.get_size()))
+        return surface
 
 class Number(Operand):
     def __init__(self, value):
