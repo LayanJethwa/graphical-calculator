@@ -1,5 +1,3 @@
-import constants
-
 import pygame
 pygame.init()
 fonts = {30: pygame.font.Font('/home/lrsje/graphical-calculator/assets/STIXTwoMath-Regular.ttf', 30)}
@@ -14,6 +12,7 @@ def get_font(size):
 
 import math
 
+import constants
 import evaluator
 import parser
 
@@ -100,21 +99,43 @@ class Expression(Object):
             surface = pygame.Surface((15,30), pygame.SRCALPHA)
         return pygame.transform.smoothscale(surface, tuple(i*scale for i in surface.get_size()))
     
+    
     def evaluate(self):
         tokens = []
+        last_type = "operator"
         token = ""
         for object in self.objects:
             if object.type == "number":
                 token += object.value
-            elif object.type == "symbol":
+
+            elif object.type == "symbol" or object.type == "bracket":
                 if token != "":
                     tokens.append((token, "operand"))
-                tokens.append((object.value, "operator"))
-                token = ""
+                    last_type = "operand"
+                    token = ""
+
+                if object.type == "symbol":
+                    if object.value == "-" and last_type == "operator":
+                        tokens.append(("NEG", "operator"))
+                    else:
+                        tokens.append((object.value, "operator"))
+                    last_type = "operator"
+
+                elif object.type == "bracket":
+                    tokens.append((object.value, "bracket"))
+                    if object.value == "(":
+                        last_type = "operator"
+                    elif object.value == ")":
+                        last_type = "operand"
+
             elif object.type == "variable":
                 tokens.append((object.value, "operand"))
+                last_type = "operand"
+
             else:
                 tokens.append((object.evaluate(), "operand"))
+                last_type = "operand"
+
         if token != "":
             tokens.append((token, "operand"))
 
@@ -191,10 +212,10 @@ class SquareRoot(UnaryOperator):
 
 
 class Operand(Object):
-    def __init__(self):
+    def __init__(self, value):
         super().__init__()
-        self.value = None
-        self.rendered_value = None
+        self.value = str(value)
+        self.rendered_value = self.value
 
     def render(self, scale=1, cursor=Cursor(None)):
         pixel_size = 30*scale
@@ -204,16 +225,12 @@ class Operand(Object):
 
 class Number(Operand):
     def __init__(self, value):
-        super().__init__()
-        self.value = str(value)
-        self.rendered_value = self.value
+        super().__init__(value)
         self.type = "number"
 
 class Symbol(Operand):
     def __init__(self, value):
-        super().__init__()
-        self.value = str(value)
-        self.rendered_value = self.value
+        super().__init__(value)
         self.type = "symbol"
 
         if self.value == "*":
@@ -221,11 +238,14 @@ class Symbol(Operand):
         elif self.value == "/":
             self.rendered_value = "÷"
 
+class Bracket(Operand):
+    def __init__(self, value):
+        super().__init__(value)
+        self.type = "bracket"
+
 class Variable(Operand):
     def __init__(self, value):
-        super().__init__()
-        self.value = str(value)
-        self.rendered_value = self.value
+        super().__init__(value)
         self.type = "variable"
 
         if self.value == "x":

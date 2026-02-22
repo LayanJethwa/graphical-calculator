@@ -10,21 +10,38 @@ def convert(processed_infix):
         out_queue.append(operator_stack.pop())
 
     for token in processed_infix:
+        value, tag = token
 
-        if token[1] == "operand":
+        if tag == "operand":
             out_queue.append(token)
-
-        else:
-            while ((operator_stack.get(-1) != '(' and operator_stack.get(-1) not in constants.UNARY_FUNCTIONS
-                   and operator_stack.get(-1) != None) and 
-                   ((constants.PRECEDENCES[operator_stack.get(-1)] < constants.PRECEDENCES[token[0]])
-                    or (constants.PRECEDENCES[operator_stack.get(-1)] == constants.PRECEDENCES[token[0]]
-                        and token[0] not in constants.RIGHT_ASSOCIATIVE))):
-                        send()
+        
+        elif value == "(":
             operator_stack.append(token)
 
+        elif value == ")":
+            while operator_stack.get(-1)[0] != "(":
+                send()
+            operator_stack.pop()
+
+        else:
+            while True:
+                top = operator_stack.get(-1)
+                if top is None:
+                    break
+                elif top[0] == "(":
+                    break
+                top_prec = constants.PRECEDENCES.get(top[0], 0)
+                cur_prec = constants.PRECEDENCES.get(value, 0)
+
+                if (top_prec < cur_prec) or (top_prec == cur_prec and value not in constants.RIGHT_ASSOCIATIVE):
+                    send()
+                else:
+                    break
+            operator_stack.append(token)
+            
+
     while len(operator_stack) != 0:
-        if operator_stack[-1] == '(':
+        if operator_stack[-1][0] == '(':
             raise Exception("Mismatched parentheses")
         else:
             send()

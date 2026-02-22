@@ -2,6 +2,7 @@ import pygame
 import RPi.GPIO as GPIO # type: ignore
 import time
 import os
+import traceback
 
 import constants
 import evaluator
@@ -184,9 +185,10 @@ while running:
             
             
     except Exception as e: #handle exceptions with logfile as can't see terminal output on hardware
-        print(e)
+        error_text = traceback.format_exc()
+        print(error_text)
         with open("logs.txt", "a") as logfile:
-            logfile.write(str(e))
+            logfile.write(error_text)
             logfile.write("\n")
             logfile.close()
         reset()

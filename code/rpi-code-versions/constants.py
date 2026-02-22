@@ -1,10 +1,6 @@
-RIGHT_ASSOCIATIVE = ['^','log']
-OPERANDS = ['x']
-OPERATORS = ['+',r"\-",'/','*','^','(',')']
-UNARY_FUNCTIONS = ['sin','cos','tan','csc','sec','cot']
-BINARY_FUNCTIONS = ['log']
+RIGHT_ASSOCIATIVE = ['NEG']
 
-PRECEDENCES_LIST = [['sin','cos','tan'],['^','log'],['/','*'],['+','-']]
+PRECEDENCES_LIST = [['NEG'],['/','*'],['+','-']]
 PRECEDENCES = {None:100000}
 
 def precedences_setup():
@@ -55,7 +51,13 @@ ZOOM_SCALE_FACTOR = 2
 BLACK = (0,0,0)
 WHITE = (255,255,255)
 BLUE = (0,120,215)
-COLOURS = [(255,0,0),(0,255,0),(0,0,255),(255,0,255),(0,255,255),(128,0,128),(255,165,0)]
+COLOURS = [(255,20,60), #red
+           (255,140,0), #orange
+           (34,139,34), #green
+           (0,0,255), #blue
+           (128,0,128), #purple
+           (255,0,255), #magenta
+           (160,82,45)] #brown
 
 
 EDIT_TEXT = ['...','|']

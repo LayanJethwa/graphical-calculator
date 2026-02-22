@@ -46,15 +46,15 @@ def update_screen(screen, functions, selected, view_window, cursors, cursor_acti
         if selected == line:
             screen.blit(font.render('>', False, constants.BLUE), (5*constants.WSCALE,45*constants.HSCALE+line*40*constants.HSCALE))
             if cursor_active:
-                surface = functions[line].render(offset=5, cursor=cursors[selected])
+                surface = functions[line].render(cursor=cursors[selected])
             else:
-                surface = functions[line].render(offset=5)
+                surface = functions[line].render()
             surface = pygame.transform.smoothscale(surface, (surface.get_width()*constants.WSCALE, surface.get_height()*constants.HSCALE))
             screen.blit(surface, (35*constants.WSCALE+90,45*constants.HSCALE+line*40*constants.HSCALE))
         elif not functions[line].objects:
             screen.blit(font.render('...', False, constants.BLACK), (35*constants.WSCALE+90,45*constants.HSCALE+line*40*constants.HSCALE))
         else:
-            surface = functions[line].render(offset=5)
+            surface = functions[line].render()
             surface = pygame.transform.smoothscale(surface, (surface.get_width()*constants.WSCALE, surface.get_height()*constants.HSCALE))
             screen.blit(surface, (35*constants.WSCALE+90,45*constants.HSCALE+line*40*constants.HSCALE))
         

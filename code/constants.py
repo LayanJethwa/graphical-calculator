@@ -1,12 +1,8 @@
 from collections import defaultdict
 
-RIGHT_ASSOCIATIVE = ['^','log'] #most can go (unary neg right-associative?)
-OPERANDS = ['x']
-OPERATORS = ['+',r"\-",'/','*','^','(',')']
-UNARY_FUNCTIONS = ['sin','cos','tan','csc','sec','cot']
-BINARY_FUNCTIONS = ['log']
+RIGHT_ASSOCIATIVE = ['NEG']
 
-PRECEDENCES_LIST = [['sin','cos','tan'],['^','log'],['/','*'],['+','-']] #can be trimmed to only basic operators
+PRECEDENCES_LIST = [['NEG'],['/','*'],['+','-']]
 PRECEDENCES = {None:100000}
 
 def precedences_setup():
@@ -53,8 +49,14 @@ ZOOM_SCALE_FACTOR = 2
 
 BLACK = (0,0,0)
 WHITE = (255,255,255)
-BLUE = (0,120,215)
-COLOURS = [(255,0,0),(0,255,0),(0,0,255),(255,0,255),(0,255,255),(128,0,128),(255,165,0)]
+BLUE = (0,120,215) #talk about accessibility for colours here
+COLOURS = [(255,20,60), #red
+           (255,140,0), #orange
+           (34,139,34), #green
+           (0,0,255), #blue
+           (128,0,128), #purple
+           (255,0,255), #magenta
+           (160,82,45)] #brown
 
 
 EDIT_TEXT = ['...','|']
@@ -63,10 +65,6 @@ EDIT_TEXT = ['...','|']
 E = 2.718281828459045235360287471352
 PI = 3.141592653589793238462643383279
 
-
-IDENTICAL_KEYS = [ord(i) for i in '-.e'] #all can go
-SHIFT_KEYS = {ord(i[0]):i[1] for i in [('=','+'),('9','('),('0',')'),('8','x')]}
-PLACEHOLDER_KEYS = {'q':'²', 'w':'³', 'x':'𝑥', '/':'÷', 'p':'π', 'l':'log(', 's':'sin(', 'c':'cos(', 't':'tan(', 'r':'csc(', 'y':'sec(', 'u':'cot('}
 
 KEY_MAP = {'r': ['power(exponent)','RADICAL'], 'f': 'FRACTION', 's': 'SQRT', # for robust mapping between computer and hardware, key.name:what key is treated as
            '0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9', '.': '.',

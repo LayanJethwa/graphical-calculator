@@ -5,14 +5,20 @@ import helpers
 def create_function(postfix):
     stack = []
     for token in postfix:
-        if token[0] == 'x':
-            stack.append(lambda x: x)
+        value, tag = token
 
-        elif str(token[0]).isdigit():
-            stack.append(lambda x, v=float(token[0]): v)
+        if tag == "operand":
+            if value == 'x':
+                stack.append(lambda x: x)
+            else:
+                try:
+                    stack.append(lambda x, v=float(value): v)
+                except:
+                    raise "Invalid string for a number"
         
-        elif token[1] == "operand":
-            stack.append(token[0])
+        elif value == "NEG":
+            a = stack.pop()
+            stack.append(lambda x, a=a: -a(x))
         
         else:
             b = stack.pop()
