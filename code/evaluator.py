@@ -1,8 +1,10 @@
 import constants
 import helpers
 
+import math
 
-def create_function(postfix): #when i come back test unary neg
+
+def create_function(postfix):
     stack = []
     for token in postfix:
         value, tag = token
@@ -10,6 +12,10 @@ def create_function(postfix): #when i come back test unary neg
         if tag == "operand":
             if value == 'x':
                 stack.append(lambda x: x)
+            elif value == "PI":
+                stack.append(lambda x: math.pi)
+            elif value == "E":
+                stack.append(lambda x: math.e)
             elif callable(value):
                 stack.append(value)
             else:

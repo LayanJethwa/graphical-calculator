@@ -7,7 +7,7 @@ font = pygame.font.Font('./assets/STIXTwoMath-Regular.ttf', 30)
 small_font = pygame.font.Font('./assets/STIXTwoMath-Regular.ttf', 10)
 
 
-def update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode):
+def update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode, angle_mode):
     screen.fill(constants.WHITE)
     pygame.draw.rect(screen, constants.BLACK, pygame.Rect(0,0,constants.WIDTH, 40),2)
 
@@ -46,14 +46,14 @@ def update_screen(screen, functions, selected, view_window, cursors, cursor_acti
         if selected == line:
             screen.blit(font.render('>', False, constants.BLUE), (5,45+line*40))
             if cursor_active:
-                surface = functions[line].render(offset=5, cursor=cursors[selected])
+                surface = functions[line].render(cursor=cursors[selected])
             else:
-                surface = functions[line].render(offset=5)
+                surface = functions[line].render()
             screen.blit(surface, (125,45+line*40))
         elif not functions[line].objects:
             screen.blit(font.render('...', False, constants.BLACK), (125,45+line*40))
         else:
-            surface = functions[line].render(offset=5)
+            surface = functions[line].render()
             screen.blit(surface, (125,45+line*40))
         
         pygame.draw.rect(screen, constants.COLOURS[line], pygame.Rect(440,55+line*40,30,15))
@@ -61,16 +61,18 @@ def update_screen(screen, functions, selected, view_window, cursors, cursor_acti
     
     if shift_mode:
         screen.blit(small_font.render("SHIFT", False, constants.BLACK), (450, 5))
+    
+    screen.blit(small_font.render(angle_mode, False, constants.BLACK), (420, 5))
 
 
 def move(direction, functions, cursors, selected, cursor_active, view_window):
-    if direction == 'UP':
+    if direction == 'UP': #write about indices
         if selected == 0:
             selected = 7
             view_window[selected-7] += '|'
             cursor_active = True
 
-        elif selected > 0:
+        elif 0 < selected < 7:
             selected -= 1
             cursors[selected].expression = functions[selected]
             cursors[selected].position = len(functions[selected].objects)
@@ -96,7 +98,7 @@ def move(direction, functions, cursors, selected, cursor_active, view_window):
             cursor_active = True
 
     elif direction == 'RIGHT':
-        if selected < 10:
+        if 7 <= selected < 10:
             selected += 1
             view_window[selected-7] += '|'
             cursor_active = True

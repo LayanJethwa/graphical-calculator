@@ -1,32 +1,41 @@
-zoom momentary toggle switch
-radians to degrees switch
+zoom momentary toggle switch (✓ - not toggle)
+radians to degrees switch ✓
 
-up,right,down,left buttons
-shift
-on
+up,right,down,left buttons ✓
+shift ✓
+on ✓
 
-integral (derivative)
-x (y)
-fraction
-sqrt (cuberoot)
-squared (cubed)
-^n (nroot)
-log
-ln (log10)
-sin (cosec)
-cos (sec)
-tan (cot)
-left bracket
-right bracket
-pi (e)
-multiply
-divide
-plus
-minus
-exe
-10 x nums
-.
-del
-ac (off)
+integral (derivative) X
+x (y) ✓X
+fraction ✓
+sqrt (cuberoot) ✓
+squared (cubed) ✓
+^n (nroot) ✓
+log ✓
+ln (log10) ✓
+sin (cosec) ✓
+cos (sec) ✓
+tan (cot) ✓
+left bracket ✓
+right bracket ✓
+pi (e) ✓
+multiply ✓
+divide ✓
+plus ✓
+minus ✓
+exe ✓
+10 x nums ✓
+. ✓
+del ✓
+ac (off) ✓
 
 = 38 buttons
+
+Not implementing: antiderivatives, implicits, y=, parametrics, DEs
+Buttons not implementing: integral/derivative, y
+
+Steps to add function:
+Add in expression tree
+Add in constants keymap
+Add in lists at bottom
+Add in main input detection

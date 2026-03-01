@@ -7,7 +7,7 @@ font = pygame.font.Font('/home/lrsje/graphical-calculator/assets/STIXTwoMath-Reg
 small_font = pygame.font.Font('/home/lrsje/graphical-calculator/assets/STIXTwoMath-Regular.ttf', 10)
 
 
-def update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode):
+def update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode, angle_mode):
     screen.fill(constants.WHITE)
     pygame.draw.rect(screen, constants.BLACK, pygame.Rect(0,0,constants.WIDTH, 40),2)
 
@@ -64,6 +64,8 @@ def update_screen(screen, functions, selected, view_window, cursors, cursor_acti
     if shift_mode:
         screen.blit(small_font.render("SHIFT", False, constants.BLACK), (450*constants.WSCALE, 5))
 
+    screen.blit(small_font.render(angle_mode, False, constants.BLACK), (420*constants.WSCALE, 5))
+
 
 def move(direction, functions, cursors, selected, cursor_active, view_window):
     if direction == 'UP':
@@ -72,7 +74,7 @@ def move(direction, functions, cursors, selected, cursor_active, view_window):
             view_window[selected-7] += '|'
             cursor_active = True
 
-        elif selected > 0:
+        elif 0 < selected < 7:
             selected -= 1
             cursors[selected].expression = functions[selected]
             cursors[selected].position = len(functions[selected].objects)
@@ -98,7 +100,7 @@ def move(direction, functions, cursors, selected, cursor_active, view_window):
             cursor_active = True
 
     elif direction == 'RIGHT':
-        if selected < 10:
+        if 7 <= selected < 10:
             selected += 1
             view_window[selected-7] += '|'
             cursor_active = True

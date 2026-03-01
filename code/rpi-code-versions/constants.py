@@ -86,19 +86,21 @@ C5 = 19
 COLS = [C1,C2,C3,C4,C5]
 
 KEY_MATRIX = [["UP", "RIGHT", "DOWN", "LEFT", "SHIFT"], #caps is implemented
-["deg/rad", "ZOOM_IN", "ZOOM_OUT", "integral", "x"],
-["FRACTION", "SQRT", ["²", "³"], ["power(exponent)", "RADICAL"], "log("],
-["ln", ["π", "e"], ["sin(", "csc("], ["cos(", "sec("], ["tan(", "cot("]],
+["ANGLE", "ZOOM_IN", "ZOOM_OUT", "integral", "x"],
+["FRACTION", ["SQRT", "CBRT"], ["SQUARED", "CUBED"], ["EXPONENT", "RADICAL"], "LOG"],
+[["LN", "LOG10"], ["PI", "E"], ["SIN", "CSC"], ["COS", "SEC"], ["TAN", "COT"]],
 ["(", ")", ["AC", "OFF"], "DEL", "."],
 ["+", "-", "*", "/", "EXE"],
 ['1','2','3','4','5'],
 ['6','7','8','9','0']]
 
 
-BINARY_OPERATORS = ['RADICAL', 'FRACTION']
-UNARY_OPERATORS = ['SQRT']
+BINARY_OPERATORS = ['RADICAL', 'FRACTION', 'LOG', 'EXPONENT']
+UNARY_OPERATORS = ['SQRT', 'CBRT', 'SIN', 'COS', 'TAN', 'CSC', 'SEC', 'COT', 'LN', 'LOG10', 'SQUARED', 'CUBED']
 NUMBERS = '0123456789.'
 SYMBOLS = "+-*/"
-VARIABLES = "x"
+VARIABLES = ['x', 'PI', 'E']
 ARROWS = ['LEFT', 'RIGHT', 'UP', 'DOWN']
 ZOOM = ['ZOOM_IN', 'ZOOM_OUT']
+TRIG = ['SIN', 'COS', 'TAN', 'CSC', 'SEC', 'COT']
+BRACKETS = ['(', ')']

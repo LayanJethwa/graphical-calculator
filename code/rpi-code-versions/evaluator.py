@@ -1,6 +1,8 @@
 import constants
 import helpers
 
+import math
+
 
 def create_function(postfix):
     stack = []
@@ -10,6 +12,10 @@ def create_function(postfix):
         if tag == "operand":
             if value == 'x':
                 stack.append(lambda x: x)
+            elif value == "PI":
+                stack.append(lambda x: math.pi)
+            elif value == "E":
+                stack.append(lambda x: math.e)
             elif callable(value):
                 stack.append(value)
             else:

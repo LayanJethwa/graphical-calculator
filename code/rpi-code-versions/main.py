@@ -23,7 +23,7 @@ for c in constants.COLS:
     GPIO.setup(c, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 def reset(): # handles exceptions on hardware so it doesnt just shut down
-    global display_mode, functions, cursors, view_window, selected, cursor_active, shift_mode
+    global display_mode, functions, cursors, view_window, selected, cursor_active, shift_mode, angle_mode
     
     display_mode = "input"
     functions = [expression_tree.Expression() for _ in range(7)]
@@ -34,6 +34,7 @@ def reset(): # handles exceptions on hardware so it doesnt just shut down
     selected = 0
     cursor_active = True
     shift_mode = False
+    angle_mode = "RAD"
 
     for r in constants.ROWS:
         GPIO.output(r, GPIO.LOW)
@@ -53,12 +54,12 @@ def render_graphs(graphs):
     for index in range(len(graphs)):
         graph = graphs[index]
         if graph.objects:
-            evaluated = graph.evaluate()
+            evaluated = graph.evaluate(angle_mode)
             points = evaluator.create_points(evaluated)
             graph_display.plot_graph(screen, points, constants.COLOURS[index])
 
 
-input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode)
+input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode, angle_mode)
 pygame.display.update()
 
 while running:
@@ -88,12 +89,28 @@ while running:
                                         operator = expression_tree.Radical()
                                     elif key == "FRACTION":
                                         operator = expression_tree.Fraction()
+                                    elif key == "LOG":
+                                        operator = expression_tree.Log()
+                                    elif key == "EXPONENT":
+                                        operator = expression_tree.Exponent()
                                     cursors[selected].expression.update(operator, cursors[selected].position)
                                     cursors[selected].expression = operator.left
                                     cursors[selected].position = 0
                                 elif key in constants.UNARY_OPERATORS:
                                     if key == "SQRT":
                                         operator = expression_tree.SquareRoot()
+                                    elif key == "CBRT":
+                                        operator = expression_tree.CubeRoot()
+                                    elif key in constants.TRIG:
+                                        operator = expression_tree.Trig(key)
+                                    elif key == "LN":
+                                        operator = expression_tree.Ln()
+                                    elif key == "LOG10":
+                                        operator = expression_tree.Log10()
+                                    elif key == "SQUARED":
+                                        operator = expression_tree.Squared()
+                                    elif key == "CUBED":
+                                        operator = expression_tree.Cubed()
                                     cursors[selected].expression.update(operator, cursors[selected].position)
                                     cursors[selected].expression = operator.operand
                                     cursors[selected].position = 0
@@ -104,7 +121,13 @@ while running:
                                     cursors[selected].expression.update(expression_tree.Symbol(key), cursors[selected].position)
                                     cursors[selected].position += 1
                                 elif key in constants.VARIABLES:
-                                    cursors[selected].expression.update(expression_tree.Variable(key), cursors[selected].position)
+                                    if key == "x":
+                                        cursors[selected].expression.update(expression_tree.Variable(key), cursors[selected].position)
+                                    else:
+                                        cursors[selected].expression.update(expression_tree.Constant(key), cursors[selected].position)
+                                    cursors[selected].position += 1
+                                elif key in constants.BRACKETS:
+                                    cursors[selected].expression.update(expression_tree.Bracket(key), cursors[selected].position)
                                     cursors[selected].position += 1
                                 elif key in constants.ARROWS:
                                     if key == "LEFT":
@@ -146,8 +169,14 @@ while running:
                         if key == 'SHIFT':
                             shift_mode = not shift_mode
 
+                        if key == "ANGLE":
+                            if angle_mode == "RAD":
+                                angle_mode = "DEG"
+                            else:
+                                angle_mode = "RAD"
+
                         if display_mode == 'input':
-                            input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode)
+                            input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode, angle_mode)
                             pygame.display.update()
                         elif display_mode == 'graph':
                             graph_display.update_screen(screen)
@@ -157,7 +186,7 @@ while running:
                     elif display_mode == "graph":
                         if key == 'EXE':
                             display_mode = 'input'
-                            input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode)
+                            input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode, angle_mode)
                             pygame.display.update()
                             
                         elif key in constants.ARROWS or key in constants.ZOOM:
@@ -192,7 +221,7 @@ while running:
             logfile.write("\n")
             logfile.close()
         reset()
-        input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode)
+        input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode, angle_mode)
         pygame.display.update()
 
     clock.tick(60)

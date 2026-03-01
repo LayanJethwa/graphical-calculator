@@ -66,23 +66,32 @@ E = 2.718281828459045235360287471352
 PI = 3.141592653589793238462643383279
 
 
-KEY_MAP = {'r': ['power(exponent)','RADICAL'], 'f': 'FRACTION', 's': 'SQRT', # for robust mapping between computer and hardware, key.name:what key is treated as
+# for robust mapping between computer and hardware, key.name:what key is treated as
+KEY_MAP = {'r': ['EXPONENT','RADICAL'], 'f': 'FRACTION', 's': ['SQRT', 'CBRT'],
            '0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9', '.': '.',
            '=': '+', '-': '-', '#': '*', '/': '/',
            'x': 'x',
            'left': 'LEFT', 'right': 'RIGHT', 'up': 'UP', 'down': 'DOWN',
-           'backspace': 'DEL', 'return': 'EXE', 'left shift': 'SHIFT', 'a': ['AC', 'OFF'],
-           'n': 'ZOOM_IN', 'm': 'ZOOM_OUT'}
+           'backspace': 'DEL', 'return': 'EXE', 'left shift': 'SHIFT', 'right shift': 'ANGLE', 'a': ['AC', 'OFF'],
+           'n': 'ZOOM_IN', 'm': 'ZOOM_OUT',
+           'p': ['PI', 'E'],
+           'q': ['SIN', 'CSC'],
+           'w': ['COS', 'SEC'],
+           'e': ['TAN', 'COT'],
+           'l': ['LN', 'LOG10'],
+           'k': 'LOG',
+           'j': ['SQUARED', 'CUBED'],
+           '[': '(', ']': ')'}
 
 KEY_MAP = defaultdict(str, KEY_MAP)
 
 
-BINARY_OPERATORS = ['RADICAL', 'FRACTION']
-UNARY_OPERATORS = ['SQRT']
+BINARY_OPERATORS = ['RADICAL', 'FRACTION', 'LOG', 'EXPONENT']
+UNARY_OPERATORS = ['SQRT', 'CBRT', 'SIN', 'COS', 'TAN', 'CSC', 'SEC', 'COT', 'LN', 'LOG10', 'SQUARED', 'CUBED']
 NUMBERS = '0123456789.'
 SYMBOLS = "+-*/"
-VARIABLES = "x"
+VARIABLES = ['x', 'PI', 'E']
 ARROWS = ['LEFT', 'RIGHT', 'UP', 'DOWN']
 ZOOM = ['ZOOM_IN', 'ZOOM_OUT']
-
-#implemented: -,+,(,),x,𝑥,²,÷,π,sin,cos,tan,.,DEL,AC,EXE,up,right,down,left,z-in,z-out,SHIFT,³,csc,sec,cot,e
+TRIG = ['SIN', 'COS', 'TAN', 'CSC', 'SEC', 'COT']
+BRACKETS = ['(', ')']

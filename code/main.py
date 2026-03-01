@@ -16,6 +16,7 @@ view_window = [str(i) for i in [constants.XMIN, constants.XMAX, constants.YMIN, 
 selected = 0
 cursor_active = True
 shift_mode = False
+angle_mode = "RAD"
 
 
 pygame.init()
@@ -29,12 +30,12 @@ def render_graphs(graphs):
     for index in range(len(graphs)):
         graph = graphs[index]
         if graph.objects:
-            evaluated = graph.evaluate()
+            evaluated = graph.evaluate(angle_mode)
             points = evaluator.create_points(evaluated)
             graph_display.plot_graph(screen, points, constants.COLOURS[index])
 
 
-input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode)
+input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode, angle_mode)
 pygame.display.update()
 
 
@@ -60,12 +61,28 @@ while running:
                                 operator = expression_tree.Radical()
                             elif token == "FRACTION":
                                 operator = expression_tree.Fraction()
+                            elif token == "LOG":
+                                operator = expression_tree.Log()
+                            elif token == "EXPONENT":
+                                operator = expression_tree.Exponent()
                             cursors[selected].expression.update(operator, cursors[selected].position)
                             cursors[selected].expression = operator.left
                             cursors[selected].position = 0
                         elif token in constants.UNARY_OPERATORS:
                             if token == "SQRT":
                                 operator = expression_tree.SquareRoot()
+                            elif token == "CBRT":
+                                operator = expression_tree.CubeRoot()
+                            elif token in constants.TRIG:
+                                operator = expression_tree.Trig(token)
+                            elif token == "LN":
+                                operator = expression_tree.Ln()
+                            elif token == "LOG10":
+                                operator = expression_tree.Log10()
+                            elif token == "SQUARED":
+                                operator = expression_tree.Squared()
+                            elif token == "CUBED":
+                                operator = expression_tree.Cubed()
                             cursors[selected].expression.update(operator, cursors[selected].position)
                             cursors[selected].expression = operator.operand
                             cursors[selected].position = 0
@@ -76,7 +93,13 @@ while running:
                             cursors[selected].expression.update(expression_tree.Symbol(token), cursors[selected].position)
                             cursors[selected].position += 1
                         elif token in constants.VARIABLES:
-                            cursors[selected].expression.update(expression_tree.Variable(token), cursors[selected].position)
+                            if token == "x":
+                                cursors[selected].expression.update(expression_tree.Variable(token), cursors[selected].position)
+                            else:
+                                cursors[selected].expression.update(expression_tree.Constant(token), cursors[selected].position)
+                            cursors[selected].position += 1
+                        elif token in constants.BRACKETS:
+                            cursors[selected].expression.update(expression_tree.Bracket(token), cursors[selected].position)
                             cursors[selected].position += 1
                         elif token in constants.ARROWS:
                             if token == "LEFT":
@@ -118,8 +141,14 @@ while running:
                 if token == "SHIFT":
                     shift_mode = not shift_mode
 
+                if token == "ANGLE":
+                    if angle_mode == "RAD":
+                        angle_mode = "DEG"
+                    else:
+                        angle_mode = "RAD"
+
                 if display_mode == 'input':
-                    input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode)
+                    input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode, angle_mode)
                     pygame.display.update()
                 elif display_mode == 'graph':
                     graph_display.update_screen(screen)
@@ -129,7 +158,7 @@ while running:
             elif display_mode == "graph":
                 if token == "EXE":
                     display_mode = 'input'
-                    input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode)
+                    input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode, angle_mode)
                     pygame.display.update()
 
                 elif token in constants.ARROWS or token in constants.ZOOM:
