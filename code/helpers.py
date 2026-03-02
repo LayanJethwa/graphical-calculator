@@ -13,10 +13,3 @@ class SafeList(list):
             return self[index]
         except IndexError:
             return default
-        
-
-def safe_chr(key):
-    try:
-        return chr(key)
-    except (ValueError, OverflowError):
-        return None
