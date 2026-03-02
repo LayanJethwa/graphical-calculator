@@ -172,10 +172,6 @@ class BinaryOperator(Object):
         self.right = Expression(parent=self)
         self.type = "binary_operator"
 
-class Exponent(BinaryOperator):
-    def __init__(self):
-        super().__init__()
-
 class Fraction(BinaryOperator):
     def __init__(self):
         super().__init__()
