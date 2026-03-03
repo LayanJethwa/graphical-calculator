@@ -28,7 +28,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="H9XtkC2c7bjmzZZjHMy5-23" edge="1" parent="1" source="H9XtkC2c7bjmzZZjHMy5-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#f8cecc;strokeColor=#b85450;" target="H9XtkC2c7bjmzZZjHMy5-4">
+        <mxCell id="H9XtkC2c7bjmzZZjHMy5-23" edge="1" parent="1" source="H9XtkC2c7bjmzZZjHMy5-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#e1d5e7;strokeColor=#9673a6;" target="H9XtkC2c7bjmzZZjHMy5-4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="H9XtkC2c7bjmzZZjHMy5-76" connectable="0" parent="H9XtkC2c7bjmzZZjHMy5-23" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="hardware" vertex="1">
@@ -101,7 +101,7 @@
         <mxCell id="H9XtkC2c7bjmzZZjHMy5-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="RPi.GPIO" vertex="1">
           <mxGeometry height="80" width="120" x="180" y="140" as="geometry" />
         </mxCell>
-        <mxCell id="H9XtkC2c7bjmzZZjHMy5-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="time" vertex="1">
+        <mxCell id="H9XtkC2c7bjmzZZjHMy5-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="time" vertex="1">
           <mxGeometry height="80" width="120" x="510" y="140" as="geometry" />
         </mxCell>
         <mxCell id="H9XtkC2c7bjmzZZjHMy5-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="os" vertex="1">
