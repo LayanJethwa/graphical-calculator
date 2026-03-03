@@ -49,7 +49,7 @@ ZOOM_SCALE_FACTOR = 2
 
 BLACK = (0,0,0)
 WHITE = (255,255,255)
-BLUE = (0,120,215) #talk about accessibility for colours here
+BLUE = (0,120,215) #talk about accessibility for colours here in design
 COLOURS = [(255,20,60), #red
            (255,140,0), #orange
            (34,139,34), #green

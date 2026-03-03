@@ -66,7 +66,7 @@ def update_screen(screen, functions, selected, view_window, cursors, cursor_acti
 
 
 def move(direction, functions, cursors, selected, cursor_active, view_window):
-    if direction == 'UP': #write about indices
+    if direction == 'UP':
         if selected == 0:
             selected = 7
             view_window[selected-7] += '|'
