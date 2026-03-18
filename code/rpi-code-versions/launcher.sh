@@ -1,4 +1,4 @@
-cd /
+cd / # move to directory and run file on boot
 cd home/lrsje/graphical-calculator
 sudo python main.py
 unclutter -idle 0.01

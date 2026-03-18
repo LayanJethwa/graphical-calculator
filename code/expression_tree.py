@@ -2,7 +2,7 @@ import pygame
 pygame.init()
 fonts = {30: pygame.font.Font('./assets/STIXTwoMath-Regular.ttf', 30)}
 
-def get_font(size): #dynamic font
+def get_font(size): # dynamic font
     size = int(size)
     if fonts.get(size):
         return fonts.get(size)
@@ -51,7 +51,7 @@ class Cursor(Object):
             try:
                 self.position = self.expression.parent.parent.index(self.expression.parent)
             except:
-                self.position = 0 #literal edge case
+                self.position = 0
             self.expression = self.expression.parent.parent
 
     def move_right(self):
@@ -64,7 +64,7 @@ class Cursor(Object):
             try:
                 self.position = self.expression.parent.parent.index(self.expression.parent) + 1
             except:
-                self.position = 0 #wrap cursor
+                self.position = 0
             self.expression = self.expression.parent.parent
 
 
@@ -88,7 +88,7 @@ class Expression(Object):
     def index(self, object):
         return self.objects.index(object)
     
-    def render(self, scale=1, cursor=Cursor(None)): #talk in design about problems with too small nested - choosing not to fix, same with smoothscale and resolution, offset only for computer code [GONE], not needed for hardware screen - tweaks
+    def render(self, scale=1, cursor=Cursor(None)):
         surface = pygame.Surface((0,0), pygame.SRCALPHA)
         render_objects = self.objects.copy()
         if cursor.expression == self:
@@ -110,8 +110,8 @@ class Expression(Object):
         last_type = "operator"
         token = ""
 
-        def add_token(value, tag): #handles implicit multiplication
-            nonlocal last_type #references parent
+        def add_token(value, tag):
+            nonlocal last_type
             if last_type == "operand" and value == "(":
                 tokens.append(("*", "operator"))
             elif last_type == "operand" and value in constants.VARIABLES:
@@ -122,7 +122,7 @@ class Expression(Object):
             tokens.append((value, tag))
 
             if value == "(":
-                last_type = "operator" #treats left bracket as operator, right as operand for unary neg
+                last_type = "operator"
             elif value == ")":
                 last_type = "operand"
             else:
@@ -182,7 +182,7 @@ class Fraction(BinaryOperator):
         width = max(numerator.get_width(), denominator.get_width())+5
         surface = pygame.Surface((width, numerator.get_height()+5+denominator.get_height()), pygame.SRCALPHA)
         pygame.draw.line(surface, constants.BLACK, (0, surface.get_height()/2), (surface.get_width(), surface.get_height()/2))
-        surface.blit(numerator, (2.5+((width-numerator.get_width())/2), 0)) #centered innit
+        surface.blit(numerator, (2.5+((width-numerator.get_width())/2), 0))
         surface.blit(denominator, (2.5+((width-denominator.get_width())/2), 2.5+surface.get_height()/2))
         return pygame.transform.smoothscale(surface, tuple(i*scale for i in surface.get_size()))
     
@@ -203,7 +203,7 @@ class Radical(BinaryOperator):
         return pygame.transform.smoothscale(surface, tuple(i*scale for i in surface.get_size()))
     
     def evaluate(self, angle_mode="RAD"):
-        return lambda x, a=self.left.evaluate(angle_mode), b=self.right.evaluate(angle_mode): math.copysign(abs(b(x)) ** (1/a(x)), b(x)) #comment in design about principal root problem with complex numbers, had to change for non integer powers
+        return lambda x, a=self.left.evaluate(angle_mode), b=self.right.evaluate(angle_mode): math.copysign(abs(b(x)) ** (1/a(x)), b(x))
     
 class Log(BinaryOperator):
     def __init__(self):
@@ -378,7 +378,7 @@ class Squared(UnaryOperator):
         operand = self.operand.render(cursor=cursor)
         operator = Number(2).render(scale=0.7, cursor=cursor)
         surface = pygame.Surface((operand.get_width()+operator.get_width(), operand.get_height()), pygame.SRCALPHA)
-        surface.blit(operand, (0, 2.5)) #slight offset
+        surface.blit(operand, (0, 2.5))
         surface.blit(operator, (operand.get_width(), 0))
         return pygame.transform.smoothscale(surface, tuple(i*scale for i in surface.get_size()))
     
@@ -407,8 +407,8 @@ class Operand(Object):
         self.value = str(value)
         self.rendered_value = self.value
 
-    def render(self, scale=1, cursor=Cursor(None)): #cursor default arg so that it can be passed through all the render operations without distinguishing type
-        pixel_size = 30*scale #dynamic font size instead of smoothscale after
+    def render(self, scale=1, cursor=Cursor(None)):
+        pixel_size = 30*scale
         font = get_font(pixel_size)
         surface = font.render(self.rendered_value, True, constants.BLACK)
         return surface
@@ -444,7 +444,7 @@ class Variable(Operand):
 class Constant(Operand):
     def __init__(self, value):
         super().__init__(value)
-        self.type = "variable" #treated as variable by evaluator
+        self.type = "variable"
         
         if self.value == "PI":
             self.rendered_value = "π"

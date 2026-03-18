@@ -2,11 +2,11 @@ import constants
 import helpers
 
 
-def convert(processed_infix):
+def convert(processed_infix): # converts tokenized infix expression to postfix (RPN) so it can be evaluated using a stack-based system
     out_queue = helpers.SafeList()
     operator_stack = helpers.SafeList()
 
-    def send():
+    def send(): # uses shunting yard algorithm
         out_queue.append(operator_stack.pop())
 
     for token in processed_infix:
@@ -42,7 +42,7 @@ def convert(processed_infix):
 
     while len(operator_stack) != 0:
         if operator_stack[-1][0] == '(':
-            raise Exception("Mismatched parentheses")
+            raise Exception("Mismatched parentheses") # logged and program reset upon erroring - useful for testing
         else:
             send()
 

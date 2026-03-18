@@ -8,7 +8,7 @@ small_font = pygame.font.Font('/home/lrsje/graphical-calculator/assets/STIXTwoMa
 
 
 def update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode, angle_mode):
-    screen.fill(constants.WHITE)
+    screen.fill(constants.WHITE) # render view window input fields
     pygame.draw.rect(screen, constants.BLACK, pygame.Rect(0,0,constants.WIDTH, 40),2)
 
 
@@ -41,12 +41,12 @@ def update_screen(screen, functions, selected, view_window, cursors, cursor_acti
     screen.blit(font.render(view_window[3], False, constants.BLACK), (275*constants.WSCALE+115,6))
 
 
-    for line in range(7):
+    for line in range(7): # render each line
         screen.blit(font.render(f'{line+1}:  𝑦 =', False, constants.BLACK), (35*constants.WSCALE,45*constants.HSCALE+line*40*constants.HSCALE))
         if selected == line:
             screen.blit(font.render('>', False, constants.BLUE), (5*constants.WSCALE,45*constants.HSCALE+line*40*constants.HSCALE))
             if cursor_active:
-                surface = functions[line].render(cursor=cursors[selected])
+                surface = functions[line].render(cursor=cursors[selected]) # calls render method in expression tree
             else:
                 surface = functions[line].render()
             surface = pygame.transform.smoothscale(surface, (surface.get_width()*constants.WSCALE, surface.get_height()*constants.HSCALE))
@@ -58,16 +58,16 @@ def update_screen(screen, functions, selected, view_window, cursors, cursor_acti
             surface = pygame.transform.smoothscale(surface, (surface.get_width()*constants.WSCALE, surface.get_height()*constants.HSCALE))
             screen.blit(surface, (35*constants.WSCALE+90,45*constants.HSCALE+line*40*constants.HSCALE))
         
-        pygame.draw.rect(screen, constants.COLOURS[line], pygame.Rect(440*constants.WSCALE,55*constants.HSCALE+line*40*constants.HSCALE,30,15))
+        pygame.draw.rect(screen, constants.COLOURS[line], pygame.Rect(440*constants.WSCALE,55*constants.HSCALE+line*40*constants.HSCALE,30,15)) # colour indicators for each graph line
         
         
-    if shift_mode:
+    if shift_mode: # render indicators for shift and angle modes
         screen.blit(small_font.render("SHIFT", False, constants.BLACK), (450*constants.WSCALE, 5))
 
     screen.blit(small_font.render(angle_mode, False, constants.BLACK), (420*constants.WSCALE, 5))
 
 
-def move(direction, functions, cursors, selected, cursor_active, view_window):
+def move(direction, functions, cursors, selected, cursor_active, view_window): # move within input display screen
     if direction == 'UP':
         if selected == 0:
             selected = 7

@@ -1,9 +1,9 @@
-RIGHT_ASSOCIATIVE = ['NEG']
+RIGHT_ASSOCIATIVE = ['NEG'] # right-associative operators for precedence in parsing
 
-PRECEDENCES_LIST = [['NEG'],['/','*'],['+','-']]
+PRECEDENCES_LIST = [['NEG'],['/','*'],['+','-']] # list of precedence (BIDMAS) for parsing
 PRECEDENCES = {None:100000}
 
-def precedences_setup():
+def precedences_setup(): # converts precedences list into a dictionary
     for index in range(len(PRECEDENCES_LIST)):
         for operator in PRECEDENCES_LIST[index]:
             PRECEDENCES[operator] = index
@@ -14,15 +14,15 @@ DEFAULT_FREQUENCY = 300
 WIDTH = 800
 HEIGHT = 480
 
-WSCALE = 5/3 #multipliers from 480x320, specifically for hardware scaling - screen bigger than expected
+WSCALE = 5/3 # multipliers from 480x320, specifically for hardware scaling - screen bigger than expected
 HSCALE = 3/2
 
-XMIN = -15
+XMIN = -15 # screen bounds - variable
 XMAX = 15
 YMIN = -10
 YMAX = 10
 
-XDIFF = XMAX-XMIN
+XDIFF = XMAX-XMIN # helpful calculation results for placement of objects on the screen
 YDIFF = YMAX-YMIN
 
 SCALEX = WIDTH/(XDIFF)
@@ -60,13 +60,13 @@ COLOURS = [(255,20,60), #red
            (160,82,45)] #brown
 
 
-EDIT_TEXT = ['...','|']
+EDIT_TEXT = ['...','|'] # which to display in front of view window text (ellipsis if empty, cursor if selected)
 
 
 E = 2.718281828459045235360287471352
 PI = 3.141592653589793238462643383279
 
-R1 = 2
+R1 = 2 # rows and columns for hardware pins
 R2 = 3
 R3 = 4
 R4 = 5
@@ -85,9 +85,9 @@ C5 = 19
 
 COLS = [C1,C2,C3,C4,C5]
 
-KEY_MATRIX = [["UP", "RIGHT", "DOWN", "LEFT", "SHIFT"], #caps is implemented
-["ANGLE", "ZOOM_IN", "ZOOM_OUT", "integral", "x"],
-["FRACTION", ["SQRT", "CBRT"], ["SQUARED", "CUBED"], ["EXPONENT", "RADICAL"], "LOG"],
+KEY_MATRIX = [["UP", "RIGHT", "DOWN", "LEFT", "SHIFT"], # integral is the only key not implemented
+["ANGLE", "ZOOM_IN", "ZOOM_OUT", "integral", "x"], # matrix maps to rows and columns of hardware pins
+["FRACTION", ["SQRT", "CBRT"], ["SQUARED", "CUBED"], ["EXPONENT", "RADICAL"], "LOG"], # sub array gives normal and shift key
 [["LN", "LOG10"], ["PI", "E"], ["SIN", "CSC"], ["COS", "SEC"], ["TAN", "COT"]],
 ["(", ")", ["AC", "OFF"], "DEL", "."],
 ["+", "-", "*", "/", "EXE"],
@@ -95,7 +95,7 @@ KEY_MATRIX = [["UP", "RIGHT", "DOWN", "LEFT", "SHIFT"], #caps is implemented
 ['6','7','8','9','0']]
 
 
-BINARY_OPERATORS = ['RADICAL', 'FRACTION', 'LOG', 'EXPONENT']
+BINARY_OPERATORS = ['RADICAL', 'FRACTION', 'LOG', 'EXPONENT'] # for deciding which object to create when a key is input
 UNARY_OPERATORS = ['SQRT', 'CBRT', 'SIN', 'COS', 'TAN', 'CSC', 'SEC', 'COT', 'LN', 'LOG10', 'SQUARED', 'CUBED']
 NUMBERS = '0123456789.'
 SYMBOLS = "+-*/"

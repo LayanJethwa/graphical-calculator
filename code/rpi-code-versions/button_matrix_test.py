@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO # type: ignore
 import time
 
-R1 = 2
+R1 = 2 # row and column pin numbers
 R2 = 3
 R3 = 4
 R4 = 5
@@ -28,17 +28,17 @@ GPIO.cleanup()
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
-for r in rows:
+for r in rows: # sets up pins to be able to output signals
     GPIO.setup(r, GPIO.OUT)
     GPIO.output(r, GPIO.LOW)
 
-for c in cols:
+for c in cols: # buttons in matrix so both row and col are activated for each button press
     GPIO.setup(c, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 GPIO.setup(DEG, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(RAD, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-def detectRow(row, chars):
+def detectRow(row, chars): # checks for button presses
     for r in rows:
         GPIO.output(r, GPIO.LOW)
     GPIO.output(row, GPIO.HIGH)
@@ -51,7 +51,7 @@ def detectRow(row, chars):
     GPIO.output(row, GPIO.LOW)
 
 
-while True:
+while True: # check whether all the buttons are working
     detectRow(R1, ["up", "right", "down", "left", "shift"])
     detectRow(R2, ["on", "zoom in", "zoom out", "integral", "x"])
     detectRow(R3, ["fraction", "sqrt", "square", "power", "log"])

@@ -11,7 +11,7 @@ import expression_tree
 
 constants.precedences_setup()
 
-GPIO.cleanup()
+GPIO.cleanup() # set up button matrix pins
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 
@@ -43,14 +43,14 @@ reset()
 
 
 pygame.init()
-screen = pygame.display.set_mode((constants.WIDTH, constants.HEIGHT), pygame.FULLSCREEN) #fullscreen for hardware
+screen = pygame.display.set_mode((constants.WIDTH, constants.HEIGHT), pygame.FULLSCREEN) # fullscreen for hardware
 running = True
-clock = pygame.time.Clock()
+clock = pygame.time.Clock() # reduces stress on hardware by capping framerate at 60 FPS
 
 import input_display
 import graph_display
 
-def render_graphs(graphs):
+def render_graphs(graphs): # evaluates each graph in the list and plots on axes
     for index in range(len(graphs)):
         graph = graphs[index]
         if graph.objects:
@@ -63,14 +63,14 @@ input_display.update_screen(screen, functions, selected, view_window, cursors, c
 pygame.display.update()
 
 while running:
-    try: #handle exceptions
+    try: # handle exceptions
         for event in pygame.event.get(): 
-            if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_TAB): #keyboard override for testing
+            if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_TAB): # keyboard override for testing
                 running = False
                 pygame.quit()
                         
                         
-        for r in range(len(constants.ROWS)):
+        for r in range(len(constants.ROWS)): # detect button presses
             GPIO.output(constants.ROWS[r], GPIO.HIGH)
 
             for c in range(len(constants.COLS)):
@@ -81,7 +81,7 @@ while running:
                     if key != "SHIFT":
                         shift_mode = False
                     
-                    if display_mode == "input":
+                    if display_mode == "input": # handle inputs - creates objects based on inputted key
                         if cursor_active == True:
                             if selected < 7:
                                 if key in constants.BINARY_OPERATORS:
@@ -146,7 +146,7 @@ while running:
                                     functions[selected] = function
                                     cursors[selected] = expression_tree.Cursor(function)
 
-                            else:
+                            else: # handles input for view window
                                 if key in constants.NUMBERS:
                                     view_window[selected-7] = view_window[selected-7].replace('|',key+'|')
                                 elif key == "DEL":
@@ -160,7 +160,7 @@ while running:
                                     view_window[selected-7] = '|'
                                 
 
-                        elif cursor_active == False:
+                        elif cursor_active == False: # move within input display or switch to graph mode
                             if key in constants.ARROWS:
                                 selected, cursor_active, view_window = input_display.move(key, functions, cursors, selected, cursor_active, view_window)
                             elif key == 'EXE':
@@ -175,7 +175,7 @@ while running:
                             else:
                                 angle_mode = "RAD"
 
-                        if display_mode == 'input':
+                        if display_mode == 'input': # updates screen
                             input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode, angle_mode)
                             pygame.display.update()
                         elif display_mode == 'graph':
@@ -183,7 +183,7 @@ while running:
                             render_graphs(functions)
                             pygame.display.update()
 
-                    elif display_mode == "graph":
+                    elif display_mode == "graph": # handles pan, zoom and return to input mode when in graph mode
                         if key == 'EXE':
                             display_mode = 'input'
                             input_display.update_screen(screen, functions, selected, view_window, cursors, cursor_active, shift_mode, angle_mode)
@@ -202,18 +202,18 @@ while running:
                             pygame.display.update()
                             
                             
-                    if key == "OFF": # end program for hardware
+                    if key == "OFF": # end program for hardware and shut down raspberry pi
                         os.system("sudo shutdown -h now")
                         GPIO.cleanup()
                         running = False
                         pygame.quit()
                     
                 
-                    time.sleep(0.2) #so key matrix doesn't put heavy stress on CPU    
+                    time.sleep(0.2) # so key matrix doesn't put heavy stress on CPU
             GPIO.output(constants.ROWS[r], GPIO.LOW)
             
             
-    except Exception as e: #handle exceptions with logfile as can't see terminal output on hardware
+    except Exception as e: # handle exceptions with logfile as can't see terminal output on hardware
         error_text = traceback.format_exc()
         print(error_text)
         with open("logs.txt", "a") as logfile:
