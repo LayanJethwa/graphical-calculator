@@ -93,8 +93,13 @@ while running:
                                         operator = expression_tree.Log()
                                     elif key == "EXPONENT":
                                         operator = expression_tree.Exponent()
+                                        arg = cursors[selected].expression.objects.pop(-1)
+                                        operator.left.update(arg)
+                                        cursors[selected].position -= 1
                                     cursors[selected].expression.update(operator, cursors[selected].position)
                                     cursors[selected].expression = operator.left
+                                    if key == "EXPONENT":
+                                        cursors[selected].expression = operator.right
                                     cursors[selected].position = 0
                                 elif key in constants.UNARY_OPERATORS:
                                     if key == "SQRT":
@@ -109,11 +114,19 @@ while running:
                                         operator = expression_tree.Log10()
                                     elif key == "SQUARED":
                                         operator = expression_tree.Squared()
+                                        arg = cursors[selected].expression.objects.pop(-1)
+                                        operator.operand.update(arg)
+                                        cursors[selected].position -= 1
                                     elif key == "CUBED":
                                         operator = expression_tree.Cubed()
+                                        arg = cursors[selected].expression.objects.pop(-1)
+                                        operator.operand.update(arg)
+                                        cursors[selected].position -= 1
                                     cursors[selected].expression.update(operator, cursors[selected].position)
                                     cursors[selected].expression = operator.operand
                                     cursors[selected].position = 0
+                                    if key == "SQUARED" or key == "CUBED":
+                                        cursors[selected].position = 1
                                 elif key in constants.NUMBERS:
                                     cursors[selected].expression.update(expression_tree.Number(key), cursors[selected].position)
                                     cursors[selected].position += 1
@@ -147,14 +160,18 @@ while running:
                                     cursors[selected] = expression_tree.Cursor(function)
 
                             else: # handles input for view window
-                                if key in constants.NUMBERS:
+                                if key in constants.NUMBERS or key == '-':
                                     view_window[selected-7] = view_window[selected-7].replace('|',key+'|')
                                 elif key == "DEL":
                                     view_window[selected-7] = view_window[selected-7][0:-2]+'|'
                                 elif key == "EXE":
                                     view_window[selected-7] = view_window[selected-7][0:-1]
-                                    constants.XMIN, constants.XMAX, constants.YMIN, constants.YMAX = [float(i) for i in view_window]
+                                    try:
+                                        constants.XMIN, constants.XMAX, constants.YMIN, constants.YMAX = [float(i) for i in view_window]
+                                    except:
+                                        constants.XMIN, constants.XMAX, constants.YMIN, constants.YMAX = -15, 15, -10, 10
                                     constants.update_bounds()
+                                    view_window = [str(i) for i in [constants.XMIN, constants.XMAX, constants.YMIN, constants.YMAX]]
                                     cursor_active = False
                                 elif key == "AC":
                                     view_window[selected-7] = '|'

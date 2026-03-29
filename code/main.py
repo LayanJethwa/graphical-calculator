@@ -65,8 +65,13 @@ while running:
                                 operator = expression_tree.Log()
                             elif token == "EXPONENT":
                                 operator = expression_tree.Exponent()
+                                arg = cursors[selected].expression.objects.pop(-1)
+                                operator.left.update(arg)
+                                cursors[selected].position -= 1
                             cursors[selected].expression.update(operator, cursors[selected].position)
                             cursors[selected].expression = operator.left
+                            if token == "EXPONENT":
+                                cursors[selected].expression = operator.right
                             cursors[selected].position = 0
                         elif token in constants.UNARY_OPERATORS:
                             if token == "SQRT":
@@ -81,11 +86,19 @@ while running:
                                 operator = expression_tree.Log10()
                             elif token == "SQUARED":
                                 operator = expression_tree.Squared()
+                                arg = cursors[selected].expression.objects.pop(-1)
+                                operator.operand.update(arg)
+                                cursors[selected].position -= 1
                             elif token == "CUBED":
                                 operator = expression_tree.Cubed()
+                                arg = cursors[selected].expression.objects.pop(-1)
+                                operator.operand.update(arg)
+                                cursors[selected].position -= 1
                             cursors[selected].expression.update(operator, cursors[selected].position)
                             cursors[selected].expression = operator.operand
                             cursors[selected].position = 0
+                            if token == "SQUARED" or token == "CUBED":
+                                cursors[selected].position = 1
                         elif token in constants.NUMBERS:
                             cursors[selected].expression.update(expression_tree.Number(token), cursors[selected].position)
                             cursors[selected].position += 1
@@ -119,14 +132,18 @@ while running:
                             cursors[selected] = expression_tree.Cursor(function)
 
                     else:
-                        if token in constants.NUMBERS:
+                        if token in constants.NUMBERS or token == '-':
                             view_window[selected-7] = view_window[selected-7].replace('|',token+'|')
                         elif token == "DEL":
                             view_window[selected-7] = view_window[selected-7][0:-2]+'|'
                         elif token == "EXE":
                             view_window[selected-7] = view_window[selected-7][0:-1]
-                            constants.XMIN, constants.XMAX, constants.YMIN, constants.YMAX = [float(i) for i in view_window]
+                            try:
+                                constants.XMIN, constants.XMAX, constants.YMIN, constants.YMAX = [float(i) for i in view_window]
+                            except:
+                                constants.XMIN, constants.XMAX, constants.YMIN, constants.YMAX = -15, 15, -10, 10
                             constants.update_bounds()
+                            view_window = [str(i) for i in [constants.XMIN, constants.XMAX, constants.YMIN, constants.YMAX]]
                             cursor_active = False
                         elif token == "AC":
                             view_window[selected-7] = '|'

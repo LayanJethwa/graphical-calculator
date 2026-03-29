@@ -54,14 +54,16 @@ def move(direction): # allows panning around graph, points updated and re-render
     constants.update_bounds()
 
 def zoom(direction): # allows zooming in and out of graph, centered on the center of the screen, points updated and re-rendered according to new bounds each time
+    XCENTRE = (constants.XMAX+constants.XMIN)/2
+    YCENTRE = (constants.YMAX+constants.YMIN)/2
     if direction == 'IN' and constants.XMAX > 0.001: # bounds so that calculations do not get too intensive on CPU (for zooming out, eventually we would reach significant floating point errors so the graph would not render accurately anyway)
-        constants.XMAX /= constants.ZOOM_SCALE_FACTOR
-        constants.XMIN /= constants.ZOOM_SCALE_FACTOR
-        constants.YMAX /= constants.ZOOM_SCALE_FACTOR
-        constants.YMIN /= constants.ZOOM_SCALE_FACTOR
+        constants.XMIN = XCENTRE-((constants.XMAX-XCENTRE)/constants.ZOOM_SCALE_FACTOR)
+        constants.XMAX = XCENTRE+((constants.XMAX-XCENTRE)/constants.ZOOM_SCALE_FACTOR)
+        constants.YMIN = YCENTRE-((constants.YMAX-YCENTRE)/constants.ZOOM_SCALE_FACTOR)
+        constants.YMAX = YCENTRE+((constants.YMAX-YCENTRE)/constants.ZOOM_SCALE_FACTOR)
     elif direction == 'OUT' and constants.XMAX < 1000000:
-        constants.XMAX *= constants.ZOOM_SCALE_FACTOR
-        constants.XMIN *= constants.ZOOM_SCALE_FACTOR
-        constants.YMAX *= constants.ZOOM_SCALE_FACTOR
-        constants.YMIN *= constants.ZOOM_SCALE_FACTOR
+        constants.XMIN = XCENTRE-((constants.XMAX-XCENTRE)*constants.ZOOM_SCALE_FACTOR)
+        constants.XMAX = XCENTRE+((constants.XMAX-XCENTRE)*constants.ZOOM_SCALE_FACTOR)
+        constants.YMIN = YCENTRE-((constants.YMAX-YCENTRE)*constants.ZOOM_SCALE_FACTOR)
+        constants.YMAX = YCENTRE+((constants.YMAX-YCENTRE)*constants.ZOOM_SCALE_FACTOR)
     constants.update_bounds()

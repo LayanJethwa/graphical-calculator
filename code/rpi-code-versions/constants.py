@@ -32,10 +32,18 @@ X0 = -(XMIN*SCALEX)
 Y0 = HEIGHT + (YMIN*SCALEY)
 
 def update_bounds():
-    global XDIFF, YDIFF, SCALEX, SCALEY, X0, Y0
+    global XDIFF, YDIFF, SCALEX, SCALEY, X0, Y0, YMAX, YMIN, XMAX, XMIN
 
     XDIFF = XMAX-XMIN
     YDIFF = YMAX-YMIN
+
+    if XDIFF <= 0 or YDIFF <= 0:
+        XMIN = -15
+        XMAX = 15
+        YMIN = -10
+        YMAX = 10
+        XDIFF = XMAX-XMIN
+        YDIFF = YMAX-YMIN
 
     SCALEX = WIDTH/(XDIFF)
     SCALEY = HEIGHT/(YDIFF)
